@@ -49,3 +49,6 @@ end
 	m.recipient = u.sample
 	m.save
 end
+
+c = City.create(name:"MTP")
+User.create(first_name: "Anonymous", last_name: "Fawks", description: "NOUS SOMMES ANONYMOUS. NOUS SOMMES LÉGION. NOUS NE PARDONNONS PAS. NOUS N’OUBLIONS PAS. REDOUTEZ-NOUS", email: "anony@mous.fr", city:c)

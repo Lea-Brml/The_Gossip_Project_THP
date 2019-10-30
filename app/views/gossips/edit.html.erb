@@ -3,7 +3,7 @@
 <br><br><bR
 
 <center>
-    <%= form_tag url_for(action:'update'), method: "post" do %>
+    <%= form_tag url_for(action:'update'), method: "patch" do %>
 
       <%= label_tag 'Title' %><br>
       <%= text_field_tag 'title'  %>
@@ -13,7 +13,7 @@
       <%= text_area_tag 'content' %>
       <br /> <br />
 
-      <%= submit_tag "Create Post" %>
+      <%= submit_tag "Modifier le Gossip" %>
 
     <% end %>
 </center>

@@ -1,9 +1,28 @@
 
     <!-- ... -->
-<br><br><bR
+<br><br>
 
-<center>
-    <%= form_tag url_for(action:'update'), method: "post" do %>
+<% if params[:gossip_title] == "" or params[:gossip_content] == ""%>
+            <div class="alert alert-danger text-center" role="alert">
+                  <strong>Champ manquant</strong>
+                  <ul class="text-left">
+                    <% if params[:gossip_title] == "" %>
+                      <li>Auteur manquant</li>
+                    <% end %>
+                    <% if params[:gossip_content] == "" %>
+                        <li>Contenue manquant</li>
+                    <% end %>
+                  </ul>
+            </div>
+        <% elsif params[:gossip_title] and params[:gossip_content]%>
+            <div class="alert alert-success text-center" role="alert">
+                 Gossip crée avec succés !
+            </div>
+        <%end%>
+
+<div style="text-align:center; margin-top:100px;">
+
+    <%= form_tag url_for(action:'create'), method: "post" do %>
 
       <%= label_tag 'Title' %><br>
       <%= text_field_tag 'title'  %>
@@ -16,4 +35,5 @@
       <%= submit_tag "Create Post" %>
 
     <% end %>
-</center>
+
+</div>

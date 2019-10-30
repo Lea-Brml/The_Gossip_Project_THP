@@ -11,9 +11,13 @@
 <p style="padding-left:100px;"><strong>Autheur :</strong> <% g = @gossip.find(params[:id]) %> <% h = g.user_id %> <%= @user.find(h).first_name%> <%= @user.find(h).last_name%></p>
 
 <div style="margin-left:100px;">
+
+  <a href="<%=edit_gossip_path%>" class="btn btn-outline-primary"> Modifier le gossip </a>
+  <br>
   <%=form_tag url_for(action:'destroy'), method: "DELETE" do %>
     <%=submit_tag "Supprimer le Gossip" %>
   <% end %>
+
 </div>
 
 <br>
@@ -21,4 +25,5 @@
 <center>
   <a href="<%=author_path(h)%>" class="btn btn-outline-primary"> Lien vers la page du Gossipeur </a>
   <a href="<%=city_path(@user.find(h).city_id)%>" class="btn btn-outline-primary"> Lien vers la ville du Gossipeur </a>
+  <br><br>
 </center>
