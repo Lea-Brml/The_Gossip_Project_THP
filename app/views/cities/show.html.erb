@@ -1,0 +1,37 @@
+<div style="background-color:pink;" class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 style="margin-top:60px;" class="display-4"><strong>La Ville :</strong> <%= @city.name%></h1>
+    <p class="lead">Tu trouveras ci-dessous toutes les infos relatives à la ville du gossipeur qui t'intéresse espèce de stalker.</p>
+  </div>
+</div>
+
+<p style="padding-left:100px;"><strong>Ville : </strong><%= @city.name%></p>
+<p style="padding-left:100px;"><strong>Code-Postal : </strong><%= @city.zip_code%></p>
+
+<center>
+
+<h2 style="padding-left:100px;"><strong>Les Gossips : </strong></h2>
+
+<% a = @user.where(city: @city.id) %>
+<% a.each do |t| %>
+
+
+  <div class="card" style="width: 18rem; text-align:center;">
+    <img class="card-img-top" src="https://www.beyondtrust.com/assets/images/bt/whats-your-secret.jpg" alt="Card image cap">
+    <div class="card-body">
+      <p class="card-text">  Gossipeur : <%=t.first_name%> <%=t.last_name%> </p>
+      <% g = @gossip.where(user: t.id)%>
+      <% g.each do |t| %>
+      <p class="btn btn-primary" ><%= t.content%></p>
+      <%end%>
+    </div>
+  </div>
+  <br>
+
+  <a href="<%=author_path(t)%>" class="btn btn-outline-primary"> Lien vers la page du Gossipeur </a>
+  <br><br>
+</center>
+
+
+
+<%end%>

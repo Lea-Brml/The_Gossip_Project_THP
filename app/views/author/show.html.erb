@@ -1,0 +1,21 @@
+
+
+
+<div style="background-color:pink;" class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4"><strong>L'Auteur de Malheur :</strong> <%= @user.first_name %> <%= @user.last_name %></h1>
+    <p class="lead">Tu trouveras ci-dessous toutes les infos relatives au Gossipeur qui a écrit le Gossip qui t'intéréssait espèce de stalker.</p>
+  </div>
+</div>
+
+<p style="padding-left:100px;"><strong>Prénom : </strong>  <%= @user.first_name%></p>
+<p style="padding-left:100px;"><strong>Nom : </strong>  <%= @user.last_name%></p>
+<p style="padding-left:100px;"><strong>Age : </strong>  <%= @user.age%> ans et toutes ses dents</p>
+<p style="padding-left:100px;"><strong>Mail : </strong>  <%= @user.email%></p>
+<p style="padding-left:100px;"><strong>Description : </strong>  <%= @user.description%></p>
+
+<br>
+
+<center>
+<a href="<%=city_path(@user.city_id)%>" class="btn btn-outline-primary"> Lien vers la ville du Gossipeur </a>
+</center>
