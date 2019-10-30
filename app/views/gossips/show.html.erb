@@ -10,6 +10,12 @@
 <p style="padding-left:100px;"><strong>Créé le :</strong> <%= @gossip.find(params[:id]).created_at%></p>
 <p style="padding-left:100px;"><strong>Autheur :</strong> <% g = @gossip.find(params[:id]) %> <% h = g.user_id %> <%= @user.find(h).first_name%> <%= @user.find(h).last_name%></p>
 
+<div style="margin-left:100px;">
+  <%=form_tag url_for(action:'destroy'), method: "DELETE" do %>
+    <%=submit_tag "Supprimer le Gossip" %>
+  <% end %>
+</div>
+
 <br>
 
 <center>

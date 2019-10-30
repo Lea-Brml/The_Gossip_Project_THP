@@ -42,8 +42,8 @@ class GossipsController < ApplicationController
     # pour info, le contenu de ce formulaire sera accessible dans le hash params
     # Une fois la modification faite, on redirige généralement vers la méthode show (pour afficher le potin modifié)
 
-    @gossip = Gossip.find(params[:id])
-    if @gossip.update(title: params[:title], content: params[:content])
+    @gossippp = Gossip.find(params[:id])
+    if @gossippp.update(title: params[:title], content: params[:content])
       redirect_to @gossip
     else
       render :edit
@@ -54,6 +54,12 @@ class GossipsController < ApplicationController
   def destroy
     # Méthode qui récupère le potin concerné et le détruit en base
     # Une fois la suppression faite, on redirige généralement vers la méthode index (pour afficher la liste à jour)
+    @gossipp = Gossip.find(params[:id])
+      if @gossipp.destroy
+        redirect_to gossips_path
+      else
+        render :show
+      end
   end
 
 end
