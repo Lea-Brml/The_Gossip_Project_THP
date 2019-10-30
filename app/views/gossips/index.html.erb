@@ -1,25 +1,38 @@
-<style>
 
-  .jumbotron {
-    height: 500px;
-    background-image: url("https://d3v4jsc54141g1.cloudfront.net/uploads/project/avatar/141622/large_Capture_d_e_cran_2019-06-04_14.26.29-1559651857.png");
-    background-repeat: no-repeat;
-    background-size:cover;
-    background-attachment:fixed;
-  }
-
-</style>
 
 
 <div  class="jumbotron jumbotron-fluid">
   <div class="container">
-    <h1 class="display-4" style="text-align:center; padding-top:80px; color:white;">Hello les MOUSS'</h1>
-    <p style="text-align:center; padding-top:40px; padding-bottom:40px; color:white;" class="lead">Vous êtes à la recherceh de tous les gossips de THP ? Pas besoin de chercher bien loin !</p>
+    <!-- <h1 class="display-4" style="text-align:center; padding-top:80px; color:white;">Hello les MOUSS'</h1> -->
+    <h1 class="ml11" style="text-align:center; color:white; font-size:58px; padding-top:80px;">
+      <span class="text-wrapper">
+        <span class="line line1"></span>
+        <span class="letters">Hello les Moussaillons !</span>
+      </span>
+    </h1>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
+
+    <p style="text-align:center; font-size:28px; padding-top:40px; padding-bottom:40px; color:white;" class="lead">Vous êtes à la recherceh de tous les gossips de THP ? Pas besoin de chercher bien loin !</p>
   </div>
 </div>
 
-<p style="text-align:center; font-size:32px;">Tu souhaites créer ton propre Gossip ?  </p>
-<p style="text-align:center; font-size:18px;">Rien de plus facile !<br> <%= link_to "Clique donc ICI", new_gossip_path %>   </a></p>
+<div style="height:10em;">
+  <p style="text-align:center; font-size:32px; margin-top:40px;">Tu souhaites créer ton propre Gossip ?  </p>
+  <p style="text-align:center; font-size:18px;">Rien de plus facile ! </p>
+  <center><a href="<%=new_gossip_path %>" style ="background-color:#62DDB9; color:white;" class="btn btn-outline-light my-2 my-sm-0 px-4 py-2">C'est par là !</a></center>
+</div>
+
+<br><br>
+
+<div style="background-color:#62DDB9; opacity:70%; transform:skewY(-0.75deg); height:14em; margin-bottom:40px;">
+  <div class="container text-center py-4" style="transform:skewY(0.75deg);">
+
+      <h2 class="text-white" style="padding-top:60px; font-size:40px;"> Retrouves tous les Gossips de la communauté THP : </h2>
+
+  </div>
+</div>
 
 <br><br>
 
@@ -30,9 +43,10 @@
   <div class="card" style="width: 20rem; padding-bottom:10px;">
     <img class="card-img-top" src="https://corporateeurope.org/sites/default/files/logo_1.png" alt="Card image cap">
     <div class="card-body">
-      <a style="color: #2F3782;" class="card-title" href="http://localhost:3000/gossips/<%=t.id%>"> <%=t.title %> </a>
+      <a style="color: #781D47; " class="card-title" href="http://localhost:3000/gossips/<%=t.id%>"> <%=t.title %></a>
       <p class="card-text"> <% a = t.user_id %> Gossipeur : <%= @user.find(a).first_name %></p>
       <a style="background-color: #62DDB9; color:white;" class="btn btn-outline-light" href="http://localhost:3000/gossips/<%=t.id%>">Voir le Gossip !</a>
+      <a href="<%= gossip_path(t) %>" class="btn btn-outline-danger" data-confirm="Êtes vous sûr de vouloir supprimer ce gossip?" data-method="DELETE">Supprimer</a>
     </div>
   </div>
   <br>
@@ -40,3 +54,87 @@
 <br>
 <%end%>
 </div>
+
+
+<style>
+
+  .jumbotron {
+    height: 500px;
+    background-image: url("https://d3v4jsc54141g1.cloudfront.net/uploads/project/avatar/141622/large_Capture_d_e_cran_2019-06-04_14.26.29-1559651857.png");
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-attachment:fixed;
+  }
+
+    .ml11 {
+  font-weight: 700;
+  font-size: 3.5em;
+}
+
+.ml11 .text-wrapper {
+  position: relative;
+  display: inline-block;
+  padding-top: 0.1em;
+  padding-right: 0.05em;
+  padding-bottom: 0.15em;
+}
+
+.ml11 .line {
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 3px;
+  background-color: #fff;
+  transform-origin: 0 50%;
+}
+
+.ml11 .line1 {
+  top: 0;
+  left: 0;
+}
+
+.ml11 .letter {
+  display: inline-block;
+  line-height: 1em;
+
+  }
+
+</style>
+
+<script type="text/javascript">
+
+  // Wrap every letter in a span
+  var textWrapper = document.querySelector('.ml11 .letters');
+  textWrapper.innerHTML = textWrapper.textContent.replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>");
+
+  anime.timeline({loop: true})
+    .add({
+      targets: '.ml11 .line',
+      scaleY: [0,1],
+      opacity: [0.5,1],
+      easing: "easeOutExpo",
+      duration: 700
+    })
+    .add({
+      targets: '.ml11 .line',
+      translateX: [0, document.querySelector('.ml11 .letters').getBoundingClientRect().width + 10],
+      easing: "easeOutExpo",
+      duration: 700,
+      delay: 100
+    }).add({
+      targets: '.ml11 .letter',
+      opacity: [0,1],
+      easing: "easeOutExpo",
+      duration: 600,
+      offset: '-=775',
+      delay: (el, i) => 34 * (i+1)
+    }).add({
+      targets: '.ml11',
+      opacity: 0,
+      duration: 1000,
+      easing: "easeOutExpo",
+      delay: 1000
+    });
+
+</script>

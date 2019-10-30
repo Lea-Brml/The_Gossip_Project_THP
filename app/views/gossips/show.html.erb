@@ -12,7 +12,7 @@
 
 <div style="margin-left:100px;">
 
-  <a href="<%=edit_gossip_path%>" class="btn btn-outline-primary"> Modifier le gossip </a>
+  <a style="margin-bottom:10px;" href="<%=edit_gossip_path%>" class="btn btn-outline-primary" style="border-color:#62DDB9; color:#62DDB9;"> Modifier le gossip </a>
   <br>
   <%=form_tag url_for(action:'destroy'), method: "DELETE" do %>
     <%=submit_tag "Supprimer le Gossip" %>
@@ -23,7 +23,7 @@
 <br>
 
 <center>
-  <a href="<%=author_path(h)%>" class="btn btn-outline-primary"> Lien vers la page du Gossipeur </a>
-  <a href="<%=city_path(@user.find(h).city_id)%>" class="btn btn-outline-primary"> Lien vers la ville du Gossipeur </a>
+  <a href="<%=author_path(h)%>" class="btn btn-outline-light" style="border-color:#62DDB9; color:#62DDB9;"> Lien vers la page du Gossipeur </a>
+  <a href="<%=city_path(@user.find(h).city_id)%>" class="btn btn-outline-light" style="border-color:#62DDB9; color:#62DDB9;"> Lien vers la ville du Gossipeur </a>
   <br><br>
 </center>

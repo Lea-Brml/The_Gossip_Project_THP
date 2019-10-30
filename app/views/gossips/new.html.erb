@@ -20,20 +20,32 @@
             </div>
         <%end%>
 
-<div style="text-align:center; margin-top:100px;">
+<div style="height:100px;">
+
+</div>
+
+<div style="background-color:#62DDB9; opacity:70%; transform:skewY(-2deg); height:30em; margin-bottom:0px; ">
+  <div class="container text-center py-4" style="transform:skewY(2deg);">
+
+    <h1 style="text-align:center; margin-top:40px; color:white; font-size:48px;"> Vas-y. On est entre nous. Balance les bails !</h1>
+
+    <div style="text-align:center; margin-top:50px;">
 
     <%= form_tag url_for(action:'create'), method: "post" do %>
 
-      <%= label_tag 'Title' %><br>
+      <%= label_tag 'Titre' %><br>
       <%= text_field_tag 'title'  %>
       <br /> <br />
 
-      <%= label_tag 'Content' %><br>
+      <%= label_tag 'Contenu du Gossip' %><br>
       <%= text_area_tag 'content' %>
       <br /> <br />
 
-      <%= submit_tag "Create Post" %>
+      <%= submit_tag "Créer mon Gossip" %>
 
     <% end %>
 
+    </div>
+
+  </div>
 </div>
