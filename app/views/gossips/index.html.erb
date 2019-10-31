@@ -24,10 +24,11 @@
   <p style="text-align:center; font-size:18px;">Rien de plus facile ! </p>
   <center>
     <% if current_user%>
-    <a href="<%=new_gossip_path %>" style ="background-color:#62DDB9; color:white;" class="btn btn-outline-light my-2 my-sm-0 px-4 py-2">C'est par là !</a></center>
+    <a href="<%=new_gossip_path %>" style ="background-color:#62DDB9; color:white;" class="btn btn-outline-light my-2 my-sm-0 px-4 py-2">C'est par là !</a>
     <% else %>
     <a style ="background-color:white; color:#62DDB9; border-color:#62DDB9;" class="btn btn-outline-light my-2 my-sm-0" href="<%=new_session_path%>">Se connecter</a>
     <% end %>
+  </center>
 </div>
 
 <br><br>
