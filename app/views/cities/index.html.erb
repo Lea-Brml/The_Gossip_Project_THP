@@ -1,5 +1,24 @@
-<div style="height:100px;">
+<style>
 
+.jumbotron {
+  height: 380px;
+  background-image: url("https://cdn.pixabay.com/photo/2014/05/03/01/04/manhattan-336708_960_720.jpg");
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-attachment:fixed;
+}
+
+</style>
+
+
+<div  class="jumbotron jumbotron-fluid">
+  <div class="container">
+
+    <h1 style="margin-top:90px; color:#781D47; font-size:58px;" class="display-4"><strong>La Ville de nos Gossipeurs</h1>
+    <br>
+    <p style="color:white;" class="lead">Tu trouveras ci-dessous toutes les villes où se trouvent tes gossipeurs préférés.</p>
+
+  </div>
 </div>
 
 
@@ -8,7 +27,7 @@
 <% @cityy.each do |t| %>
 
 <center>
-  <div class="card" style="width: 20rem; padding-bottom:10px; border-color:#781D47;">
+  <div class="card shadow" style="width: 20rem; padding-bottom:10px; border-color:#781D47;">
     <img class="card-img-top" src="https://cdn.pixabay.com/photo/2017/04/24/13/37/architecture-2256489_960_720.jpg" alt="Card image cap">
     <div class="card-body">
       <p class="card-text"> <span style="color:#781D47;">  Ville :</span> <%= t.name %></p>

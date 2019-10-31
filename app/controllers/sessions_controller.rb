@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
         # redirige où tu veux, avec un flash ou pas
       else
         flash.now[:danger] = 'Invalid email/password combination'
-        render 'sessions/new'
+        render 'author/new'
       end
 
     end

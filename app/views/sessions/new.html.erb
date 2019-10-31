@@ -2,12 +2,15 @@
 
 </div>
 
+
 <div style="background-color:#62DDB9; opacity:70%; transform:skewY(-2deg); height:34em; margin-bottom:0px; ">
   <div class="container text-center py-4" style="transform:skewY(2deg);">
 
     <h1 style="text-align:center; margin-top:40px; color:white; font-size:48px;"> Vas-y. Connectes-toi pour balancer des bails !</h1>
 
+
     <div style="text-align:center; margin-top:50px;">
+
 
       <%= form_tag url_for(action:'create'), method: "post" do %>
 
@@ -21,11 +24,10 @@
 
         <%= submit_tag "Me connecter" %> <a style ="background-color:white; color:#62DDB9; border-color:#62DDB9;" class="btn btn-outline-light my-2 my-sm-0" href="<%=new_author_path%>">S'inscrire</a>
 
-
       <% end %>
 
-    </div>
 
+    </div>
 
   </div>
 </div>
