@@ -2,23 +2,6 @@
     <!-- ... -->
 <br><br>
 
-<% if params[:gossip_title] == "" or params[:gossip_content] == ""%>
-            <div class="alert alert-danger text-center" role="alert">
-                  <strong>Champ manquant</strong>
-                  <ul class="text-left">
-                    <% if params[:gossip_title] == "" %>
-                      <li>Auteur manquant</li>
-                    <% end %>
-                    <% if params[:gossip_content] == "" %>
-                        <li>Contenue manquant</li>
-                    <% end %>
-                  </ul>
-            </div>
-        <% elsif params[:gossip_title] and params[:gossip_content]%>
-            <div class="alert alert-success text-center" role="alert">
-                 Gossip crée avec succés !
-            </div>
-        <%end%>
 
 <div style="height:100px;">
 
@@ -27,7 +10,9 @@
 <div style="background-color:#62DDB9; opacity:70%; transform:skewY(-2deg); height:30em; margin-bottom:0px; ">
   <div class="container text-center py-4" style="transform:skewY(2deg);">
 
+
     <h1 style="text-align:center; margin-top:40px; color:white; font-size:48px;"> Vas-y. On est entre nous. Balance les bails !</h1>
+
 
     <div style="text-align:center; margin-top:50px;">
 
@@ -49,3 +34,14 @@
 
   </div>
 </div>
+
+<br><br><br>
+
+<% if @gossip.errors.any? %>
+      <p>Nous n'avons pas réussi à créer le potin pour la (ou les) raison(s) suivante(s) :</p>
+      <ul>
+        <% @gossip.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+<% end %>

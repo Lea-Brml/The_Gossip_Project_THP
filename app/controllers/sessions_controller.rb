@@ -5,6 +5,7 @@ class SessionsController < ApplicationController
 
   def new
 
+    @user = current_user
 
   end
 
@@ -29,7 +30,7 @@ class SessionsController < ApplicationController
 
       if session.delete(:user_id)
       redirect_to gossips_path
-      end 
+      end
 
     end
 

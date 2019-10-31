@@ -32,7 +32,7 @@ class GossipsController < ApplicationController
 
   def new
     # Méthode qui crée un potin vide et l'envoie à une view qui affiche le formulaire pour 'le remplir' (new.html.erb)
-
+    @gossip = current_user
   end
 
   def create
@@ -42,8 +42,10 @@ class GossipsController < ApplicationController
     @gossip = Gossip.new(user_id: session[:user_id], title: params[:title], content: params[:content])
 
     if @gossip.save
+      flash[:success]
       redirect_to gossips_path
     else
+      flash[:danger]
       render 'gossips/new'
     end
 

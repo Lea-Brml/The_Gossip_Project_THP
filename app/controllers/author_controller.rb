@@ -24,9 +24,11 @@ class AuthorController < ApplicationController
     @user = User.new(email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation], first_name: params[:first_name], last_name: params[:last_name],  description: params[:description] , age: params[:age], city_id: rand(1..10) )
 
     if @user.save
+      flash[:success]
       session[:user_id] = @user.id
       redirect_to gossips_path
     else
+      flash[:danger]
       render 'author/new'
     end
 
