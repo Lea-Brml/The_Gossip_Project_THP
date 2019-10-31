@@ -17,7 +17,7 @@ class AuthorController < ApplicationController
 
   def new
     # Méthode qui crée un potin vide et l'envoie à une view qui affiche le formulaire pour 'le remplir' (new.html.erb)
-
+    @user = User.new
   end
 
   def create

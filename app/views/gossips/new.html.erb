@@ -37,11 +37,14 @@
 
 <br><br><br>
 
-<% if @gossip.errors.any? %>
-      <p>Nous n'avons pas réussi à créer le potin pour la (ou les) raison(s) suivante(s) :</p>
-      <ul>
-        <% @gossip.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-<% end %>
+
+  <div class="alert alert-danger" role="alert">
+    <% if @gossip.errors.any? %>
+          <p><strong>Nous n'avons pas réussi à créer le potin pour la (ou les) raison(s) suivante(s) :</strong></p>
+          <ul>
+            <% @gossip.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+    <% end %>
+  </end>

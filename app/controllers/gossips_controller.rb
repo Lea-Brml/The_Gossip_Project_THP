@@ -54,7 +54,7 @@ class GossipsController < ApplicationController
       unless compare_user(session[:user_id], @gossippp.user_id) == false
 
         if @gossippp.update(title: params[:title], content: params[:content])
-          redirect_to gossips_path
+          redirect_to gossip_path
         else
           render :edit
         end
