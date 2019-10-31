@@ -19,24 +19,32 @@
   </div>
 </div>
 
+
+
 <p style="padding-left:100px;"><strong>Titre : </strong><%= @gossip.find(params[:id]).title%></p>
 <p style="padding-left:100px;"><strong>Contenu :</strong> <%= @gossip.find(params[:id]).content%></p>
 <p style="padding-left:100px;"><strong>Créé le :</strong> <%= @gossip.find(params[:id]).created_at%></p>
 <p style="padding-left:100px;"><strong>Autheur :</strong> <% g = @gossip.find(params[:id]) %> <% h = g.user_id %> <%= @user.find(h).first_name%> <%= @user.find(h).last_name%></p>
 
+
+
 <div style="margin-left:100px;">
 
-<% if current_user %>
+<% if current_user && (session[:user_id] == @gossip.find(params[:id]).user_id) %>
+
   <a style="margin-bottom:10px;" href="<%=edit_gossip_path%>" class="btn btn-outline-primary" style="border-color:#62DDB9; color:#62DDB9;"> Modifier le gossip </a>
   <br>
   <%=form_tag url_for(action:'destroy'), method: "DELETE" do %>
     <%=submit_tag "Supprimer le Gossip" %>
   <% end %>
+
 <% end %>
 
 </div>
 
+
 <br>
+
 
 <center>
 

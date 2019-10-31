@@ -50,10 +50,10 @@
     <div class="card-body">
       <a style="color: #781D47; " class="card-title" href="http://localhost:3000/gossips/<%=t.id%>"> <%=t.title %></a>
       <p class="card-text"> <% a = t.user_id %> Gossipeur : <%= @user.find(a).first_name %></p>
-      <a style="background-color: #62DDB9; color:white;" class="btn btn-outline-light" href="http://localhost:3000/gossips/<%=t.id%>">Voir le Gossip !</a>
+      <p class="card-text"><small class="text-muted"> <% a = t.user_id %> Créé le : <%= t.created_at %></small></p>
       <% if current_user %>
-      <a href="<%= gossip_path(t) %>" style="border-color:#781D47; color:#781D47; background-color:white;"class="btn btn-outline-danger" data-confirm="Êtes vous sûr de vouloir supprimer ce gossip?" data-method="DELETE">Supprimer</a>
-      <% end%>
+      <a style="background-color: #62DDB9; color:white;" class="btn btn-outline-light" href="http://localhost:3000/gossips/<%=t.id%>">Voir le Gossip !</a>
+      <% end %>
     </div>
   </div>
   <br>
