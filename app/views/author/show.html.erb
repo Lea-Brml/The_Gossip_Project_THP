@@ -1,18 +1,37 @@
+<style>
+  .jumbotron {
+    background-image: url("https://img-cdn.tnwcdn.com/image/tnw?filter_last=1&fit=1280%2C640&url=https%3A%2F%2Fcdn0.tnwcdn.com%2Fwp-content%2Fblogs.dir%2F1%2Ffiles%2F2015%2F04%2Fcolortheory.jpg&signature=ed277da45823a9eace2ee92e4ff36663");
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-attachment:fixed;
+    height:22em;
+  }
+</style>
 
-
-
-<div style="background-color:pink;" class="jumbotron jumbotron-fluid">
+<div class="jumbotron jumbotron-fluid">
   <div class="container">
-    <h1 class="display-4" style="margin-top:60px;"><strong>L'Auteur de Malheur :</strong> <%= @user.first_name %> <%= @user.last_name %></h1>
-    <p class="lead">Tu trouveras ci-dessous toutes les infos relatives au Gossipeur qui a écrit le Gossip qui t'intéréssait espèce de stalker.</p>
+    <h1 class="display-4" style="margin-top:60px; color:white;font-size:58px;"><strong>L'Auteur de Malheur :</strong> <%= @user.first_name %> <%= @user.last_name %></h1>
+    <p class="lead" style="color:white">Tu trouveras ci-dessous toutes les infos relatives au Gossipeur qui a écrit le Gossip qui t'intéréssait espèce de stalker.</p>
   </div>
 </div>
 
-<p style="padding-left:100px;"><strong>Prénom : </strong>  <%= @user.first_name%></p>
-<p style="padding-left:100px;"><strong>Nom : </strong>  <%= @user.last_name%></p>
-<p style="padding-left:100px;"><strong>Age : </strong>  <%= @user.age%> ans et toutes ses dents</p>
-<p style="padding-left:100px;"><strong>Mail : </strong>  <%= @user.email%></p>
-<p style="padding-left:100px;"><strong>Description : </strong>  <%= @user.description%></p>
+
+
+<center>
+<div class="card" style="width:60%;">
+  <div class="card-header">
+    <strong>Gossipeur : </strong><%= @user.first_name%><%= @user.last_name%>
+  </div>
+  <div class="card-body">
+      <p><strong>Description : </strong>  <%= @user.description%></p>
+      <p><strong>Prénom : </strong>  <%= @user.first_name%></p>
+      <p><strong>Prénom : </strong>  <%= @user.last_name%></p>
+      <p><strong>Age : </strong>  <%= @user.age%> ans et toutes ses dents</p>
+      <cite title="Source Title"><strong>Mail : </strong>  <%= @user.email%><strong>
+  </div>
+</div>
+</center>
+
 
 <br>
 

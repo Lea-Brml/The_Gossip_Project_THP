@@ -1,19 +1,34 @@
+<div style="height:100px;">
 
-    <!-- ... -->
-<br><br><bR
+</div>
 
-<center>
-    <%= form_tag url_for(action:'update'), method: "patch" do %>
 
-      <%= label_tag 'Title' %><br>
-      <%= text_field_tag 'title'  %>
-      <br /> <br />
+<div style="background-color:#62DDB9; opacity:70%; transform:skewY(-2deg); height:34em; ">
+  <div class="container text-center py-4" style="transform:skewY(2deg);">
 
-      <%= label_tag 'Content' %><br>
-      <%= text_area_tag 'content' %>
-      <br /> <br />
+    <h1 style="text-align:center; margin-top:40px; color:white; font-size:48px;"> Vas-y. Modifie ton Gossip à ta guise.</h1>
 
-      <%= submit_tag "Modifier le Gossip" %>
 
-    <% end %>
-</center>
+    <div style="text-align:center; margin-top:50px;">
+
+
+      <center>
+          <%= form_tag url_for(action:'update'), method: "patch" do %>
+
+            <%= label_tag 'Title' %><br>
+            <%= text_field_tag 'title', @gossip.title  %>
+            <br /> <br />
+
+            <%= label_tag 'Content' %><br>
+            <%= text_area_tag 'content', @gossip.content %>
+            <br /> <br />
+
+            <%= submit_tag "Modifier le Gossip" %>
+
+          <% end %>
+      </center>
+
+
+    </div>
+  </div>
+</div>

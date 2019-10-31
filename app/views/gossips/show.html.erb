@@ -36,12 +36,11 @@
 </center>
 
 
-<div style="margin-left:100px; margin-top:28px;">
+<div style=" margin-top:28px; text-align:center;">
 
 <% if current_user && (session[:user_id] == @gossip.find(params[:id]).user_id) %>
 
-  <a style="margin-bottom:10px;" href="<%=edit_gossip_path%>" class="btn btn-outline-primary" style="border-color:#62DDB9; color:#62DDB9;"> Modifier le gossip </a>
-  <br>
+  <a  href="<%=edit_gossip_path%>" class="btn btn-outline-primary" > Modifier le gossip </a>
   <a href="<%= gossip_path%>" class="btn btn-outline-danger" data-confirm="Êtes vous sûr de vouloir supprimer ce gossip?" data-method="DELETE">Supprimer</a>
 <% end %>
 

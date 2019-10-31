@@ -4,18 +4,6 @@ class GossipsController < ApplicationController
   before_action :authenticate_user, only: [:new, :create, :show, :edit, :destroy]
 
 
-
-  def authenticate_user
-
-    unless current_user
-      flash[:danger] = "Please log in."
-      redirect_to new_session_path
-    end
-
-  end
-
-
-
   def index
     # Méthode qui récupère tous les potins et les envoie à la view index (index.html.erb) pour affichage
     @gossip = Gossip.all
