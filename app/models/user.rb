@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+
+	has_secure_password
+
 	#j'effectue ma relation: 1 utilisateur appartient à 1 ville
 	belongs_to :city
 	#l'utilisateur peut avoir écrit plusieur gossips
@@ -12,10 +15,12 @@ class User < ApplicationRecord
 	validates :last_name, presence:  {message: "Bonjour! Veux-tu bien renseigner ton nom STP ?"}
 
 	validates :description, presence:  {message: "Bonjour! Veux-tu bien renseigner une description STP ?"}
-	validates :description, length: {minimum: 20, message: "La description est trop courte."}
+	#validates :description, length: {minimum: 20, message: "La description est trop courte."}
 
 	validates :email, presence:  {message: "Bonjour! Veux-tu bien renseigner ton email STP ?"}
 	validates :email, uniqueness: true
 	validates :email, format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: "Le dormat n'est pas correct. Renseigne un fomat d'adresse mail valide stp." }
+
+	validates :password, presence: true, length: {minimum: 6}
 
 end

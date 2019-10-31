@@ -2,6 +2,8 @@ class AuthorController < ApplicationController
 
   def index
     # Méthode qui récupère tous les potins et les envoie à la view index (index.html.erb) pour affichage
+
+
   end
 
   def show
@@ -12,12 +14,21 @@ class AuthorController < ApplicationController
 
   def new
     # Méthode qui crée un potin vide et l'envoie à une view qui affiche le formulaire pour 'le remplir' (new.html.erb)
+
   end
 
   def create
     # Méthode qui créé un potin à partir du contenu du formulaire de new.html.erb, soumis par l'utilisateur
     # pour info, le contenu de ce formulaire sera accessible dans le hash params (ton meilleur pote)
     # Une fois la création faite, on redirige généralement vers la méthode show (pour afficher le potin créé)
+    @user = User.new(email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation], first_name: params[:first_name], last_name: params[:last_name],  description: params[:description] , age: params[:age], city_id: rand(1..10) )
+
+    if @user.save
+      redirect_to gossips_path
+    else
+      render 'author/new'
+    end
+
   end
 
   def edit

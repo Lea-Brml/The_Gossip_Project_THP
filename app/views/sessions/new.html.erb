@@ -1,0 +1,29 @@
+<div style="height:100px;">
+
+</div>
+
+<div style="background-color:#62DDB9; opacity:70%; transform:skewY(-2deg); height:34em; margin-bottom:0px; ">
+  <div class="container text-center py-4" style="transform:skewY(2deg);">
+
+    <h1 style="text-align:center; margin-top:40px; color:white; font-size:48px;"> Vas-y. Connectes-toi pour balancer des bails !</h1>
+
+    <div style="text-align:center; margin-top:50px;">
+
+      <%= form_tag url_for(action:'create'), method: "post" do %>
+
+        <%= label_tag 'E-mail' %><br>
+        <%= text_field_tag 'email'  %>
+        <br /> <br />
+
+        <%= label_tag 'Mot de Passe' %><br>
+        <%= text_area_tag 'password' %>
+        <br /> <br />
+
+        <%= submit_tag "Me connecter" %>
+
+      <% end %>
+
+    </div>
+
+  </div>
+</div>
