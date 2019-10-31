@@ -1,7 +1,21 @@
-<div style="background-color:pink;" class="jumbotron jumbotron-fluid">
+
+<style>
+
+.jumbotron {
+  height: 380px;
+  background-image: url("https://x96.com/wp-content/uploads/2019/02/secret.png");
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-attachment:fixed;
+}
+
+</style>
+
+
+<div class="jumbotron jumbotron-fluid">
   <div class="container">
-    <h1 style="margin-top:60px;" class="display-4"><strong>Le GOSSIP :</strong> <%= @gossip.find(params[:id]).title%></h1>
-    <p class="lead">Tu trouveras ci-dessous toutes les infos relatives au Gossip qui t'intéresse espèce de stalker.</p>
+    <h1 style="margin-top:100px; font-size:58px; color:white;" class="display-4"><strong>Le GOSSIP :</strong> <%= @gossip.find(params[:id]).title%></h1>
+    <p style="font-size:28px; color:white;" class="lead">Tu trouveras ci-dessous toutes les infos relatives au Gossip qui t'intéresse espèce de stalker.</p>
   </div>
 </div>
 

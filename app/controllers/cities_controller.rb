@@ -2,6 +2,8 @@ class CitiesController < ApplicationController
 
   def index
 
+    @cityy = City.all
+
   end
 
 

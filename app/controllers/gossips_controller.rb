@@ -4,6 +4,7 @@ class GossipsController < ApplicationController
     # Méthode qui récupère tous les potins et les envoie à la view index (index.html.erb) pour affichage
     @gossip = Gossip.all
     @user = User.all
+    
   end
 
   def show

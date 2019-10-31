@@ -1,37 +1,52 @@
-<div style="background-color:pink;" class="jumbotron jumbotron-fluid">
+<style>
+
+.jumbotron {
+  height: 380px;
+  background-image: url("https://cdn.pixabay.com/photo/2014/05/03/01/04/manhattan-336708_960_720.jpg");
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-attachment:fixed;
+}
+
+</style>
+
+
+<div  class="jumbotron jumbotron-fluid">
   <div class="container">
-    <h1 style="margin-top:60px;" class="display-4"><strong>La Ville :</strong> <%= @city.name%></h1>
-    <p class="lead">Tu trouveras ci-dessous toutes les infos relatives à la ville du gossipeur qui t'intéresse espèce de stalker.</p>
+
+    <h1 style="margin-top:90px; color:#781D47; font-size:58px;" class="display-4"><strong>La Ville :</strong> <%= @city.name%></h1>
+    <br>
+    <p style="color:white;" class="lead">Tu trouveras ci-dessous toutes les infos relatives à la ville du gossipeur qui t'intéresse espèce de stalker.</p>
+
   </div>
 </div>
 
 <p style="padding-left:100px;"><strong>Ville : </strong><%= @city.name%></p>
 <p style="padding-left:100px;"><strong>Code-Postal : </strong><%= @city.zip_code%></p>
 
+
+<h2 style="padding-left:100px; padding-top:40px; padding-bottom:40px;"><strong>Les Gossipeurs présents à <span style="color:#781D47;"><%=@city.name%> </span>: </strong></h2>
+
+
+
+<div class="card-columns container mx-auto">
 <center>
-
-<h2 style="padding-left:100px;"><strong>Les Gossips : </strong></h2>
-
 <% a = @user.where(city: @city.id) %>
 <% a.each do |t| %>
 
-
-  <div class="card" style="width: 18rem; text-align:center;">
-    <img class="card-img-top" src="https://www.beyondtrust.com/assets/images/bt/whats-your-secret.jpg" alt="Card image cap">
+  <div class="card" style="width: 18rem; text-align:center; border-color:#781D47;">
+    <img class="card-img-top" src="https://risibank.fr/cache/stickers/d415/41515-full.png" alt="Card image cap">
     <div class="card-body">
-      <p class="card-text">  Gossipeur : <%=t.first_name%> <%=t.last_name%> </p>
+      <p class="card-text"> <strong> Gossipeur : <%=t.first_name%> <%=t.last_name%> </strong></p>
       <% g = @gossip.where(user: t.id)%>
-      <% g.each do |t| %>
-      <p class="btn btn-primary" ><%= t.content%></p>
+      <% g.each do |i| %>
+      <p class="btn btn-outline-light" style="color:#781D47;" ><%= i.content%></p>
       <%end%>
+      <a href="<%=author_path(t)%>" style="border-color:#781D47; color:#781D47;"class="btn btn-outline-light"> Lien vers la page du Gossipeur </a>
     </div>
   </div>
+
   <br>
-
-  <a href="<%=author_path(t)%>" class="btn btn-outline-primary"> Lien vers la page du Gossipeur </a>
-  <br><br>
-</center>
-
-
-
 <%end%>
+</center>
+</div>
