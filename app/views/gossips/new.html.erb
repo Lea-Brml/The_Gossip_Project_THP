@@ -7,7 +7,7 @@
 
 </div>
 
-<div style="background-color:#62DDB9; opacity:70%; transform:skewY(-2deg); height:30em; margin-bottom:0px; ">
+<div style="background-color:#62DDB9; opacity:70%; transform:skewY(-2deg); height:32em; margin-bottom:0px; ">
   <div class="container text-center py-4" style="transform:skewY(2deg);">
 
 
@@ -18,11 +18,11 @@
 
     <%= form_tag url_for(action:'create'), method: "post" do %>
 
-      <%= label_tag 'Titre' %><br>
+      <p style="color:white; font-size:22px;"><strong><%= label_tag 'Titre' %></strong><br></p>
       <%= text_field_tag 'title'  %>
       <br /> <br />
 
-      <%= label_tag 'Contenu du Gossip' %><br>
+      <p style="color:white; font-size:22px;"><strong><%= label_tag 'Contenu du Gossip' %></strong><br></p>
       <%= text_area_tag 'content' %>
       <br /> <br />
 
