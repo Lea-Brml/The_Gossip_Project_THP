@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   get 'dashboard/profile'
+  
   resources :gossips
 
   resources :author
