@@ -1,10 +1,26 @@
 class GossipsController < ApplicationController
 
+  include SessionsHelper
+  before_action :authenticate_user, only: [:new, :create, :show, :edit, :destroy]
+
+
+
+  def authenticate_user
+
+    unless current_user
+      flash[:danger] = "Please log in."
+      redirect_to new_session_path
+    end
+
+  end
+
+
+
   def index
     # Méthode qui récupère tous les potins et les envoie à la view index (index.html.erb) pour affichage
     @gossip = Gossip.all
     @user = User.all
-    
+
   end
 
   def show
@@ -17,14 +33,13 @@ class GossipsController < ApplicationController
   def new
     # Méthode qui crée un potin vide et l'envoie à une view qui affiche le formulaire pour 'le remplir' (new.html.erb)
 
-
   end
 
   def create
     # Méthode qui créé un potin à partir du contenu du formulaire de new.html.erb, soumis par l'utilisateur
     # pour info, le contenu de ce formulaire sera accessible dans le hash params (ton meilleur pote)
     # Une fois la création faite, on redirige généralement vers la méthode show (pour afficher le potin créé)
-    @gossip = Gossip.new(user_id: 11, title: params[:title], content: params[:content])
+    @gossip = Gossip.new(user_id: session[:user_id], title: params[:title], content: params[:content])
 
     if @gossip.save
       redirect_to gossips_path
@@ -62,5 +77,6 @@ class GossipsController < ApplicationController
         render :show
       end
   end
+
 
 end

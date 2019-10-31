@@ -4,7 +4,7 @@
 <div  class="jumbotron jumbotron-fluid">
   <div class="container">
     <!-- <h1 class="display-4" style="text-align:center; padding-top:80px; color:white;">Hello les MOUSS'</h1> -->
-    <h1 class="ml11" style="text-align:center; color:white; font-size:58px; padding-top:80px;">
+    <h1 class="ml11" style="text-align:center; color:white; font-size:68px; padding-top:80px;">
       <span class="text-wrapper">
         <span class="line line1"></span>
         <span class="letters">Hello les Moussaillons !</span>
@@ -13,15 +13,20 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 
+    <p style="text-align:center; font-size:28px; padding-top:40px; padding-bottom:40px; color:white;" class="lead"><strong>Vous êtes à la recherche de tous les gossips de THP ? Pas besoin de chercher bien loin !</strong></p>
 
-    <p style="text-align:center; font-size:28px; padding-top:40px; padding-bottom:40px; color:white;" class="lead">Vous êtes à la recherceh de tous les gossips de THP ? Pas besoin de chercher bien loin !</p>
   </div>
 </div>
 
 <div style="height:10em;">
   <p style="text-align:center; font-size:32px; margin-top:40px;">Tu souhaites créer ton propre Gossip ?  </p>
   <p style="text-align:center; font-size:18px;">Rien de plus facile ! </p>
-  <center><a href="<%=new_gossip_path %>" style ="background-color:#62DDB9; color:white;" class="btn btn-outline-light my-2 my-sm-0 px-4 py-2">C'est par là !</a></center>
+  <center>
+    <% if current_user%>
+    <a href="<%=new_gossip_path %>" style ="background-color:#62DDB9; color:white;" class="btn btn-outline-light my-2 my-sm-0 px-4 py-2">C'est par là !</a></center>
+    <% else %>
+    <a style ="background-color:white; color:#62DDB9; border-color:#62DDB9;" class="btn btn-outline-light my-2 my-sm-0" href="<%=new_session_path%>">Se connecter</a>
+    <% end %>
 </div>
 
 <br><br>
@@ -60,7 +65,7 @@
 
   .jumbotron {
     height: 500px;
-    background-image: url("https://d3v4jsc54141g1.cloudfront.net/uploads/project/avatar/141622/large_Capture_d_e_cran_2019-06-04_14.26.29-1559651857.png");
+    background-image: url("https://x96.com/wp-content/uploads/2019/02/secret.png");
     background-repeat: no-repeat;
     background-size:cover;
     background-attachment:fixed;
