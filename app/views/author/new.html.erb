@@ -2,7 +2,7 @@
 
 </div>
 
-<div style="background-color:#62DDB9; opacity:70%; transform:skewY(-2deg); height:44em; margin-bottom:0px; ">
+<div style="background-color:#62DDB9; opacity:70%; transform:skewY(-2deg); height:48em; margin-bottom:0px; ">
   <div class="container text-center py-4" style="transform:skewY(2deg);">
 
     <h1 style="text-align:center; margin-top:40px; color:white; font-size:48px;"> Vas-y. On est entre nous. Balance les bails !</h1>
@@ -32,10 +32,10 @@
       <br /> <br />
 
       <%= label_tag 'Mot de Passe' %><br>
-      <%= text_area_tag 'password' %><br>
+      <%= password_field_tag 'password' %><br>
 
       <%= label_tag 'Confirme ton Mot de Passe' %><br>
-      <%= text_area_tag 'password_confirmation' %>
+      <%= password_field_tag 'password_confirmation' %>
       <br /> <br />
 
       <%= submit_tag "M'inscrire" %>
