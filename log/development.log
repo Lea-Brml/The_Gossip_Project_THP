@@ -51915,3 +51915,888 @@ Processing by GossipsController#show as HTML
 Completed 200 OK in 70ms (Views: 64.4ms | ActiveRecord: 0.8ms)
 
 
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE DATABASE "The_gossip_project_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE DATABASE "The_gossip_project_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35mSQL (44.2ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (26.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "cities" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (22.5ms)[0m  [1m[35mCREATE TABLE "cities" ("id" bigserial primary key, "name" character varying, "zip_code" character varying)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (4.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "gossips" CASCADE[0m
+  ↳ db/schema.rb:23
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE TABLE "gossips" ("id" bigserial primary key, "title" character varying, "content" text, "user_id" bigint, "created_at" timestamp, "updated_at" timestamp)[0m
+  ↳ db/schema.rb:23
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE  INDEX  "index_gossips_on_user_id" ON "gossips"  ("user_id")[0m
+  ↳ db/schema.rb:23
+  [1m[35m (5.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "message_prives" CASCADE[0m
+  ↳ db/schema.rb:32
+  [1m[35m (7.0ms)[0m  [1m[35mCREATE TABLE "message_prives" ("id" bigserial primary key, "recipient_id" bigint, "sender_id" bigint, "content" text)[0m
+  ↳ db/schema.rb:32
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE  INDEX  "index_message_prives_on_recipient_id" ON "message_prives"  ("recipient_id")[0m
+  ↳ db/schema.rb:32
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE  INDEX  "index_message_prives_on_sender_id" ON "message_prives"  ("sender_id")[0m
+  ↳ db/schema.rb:32
+  [1m[35m (3.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "tag_gossips" CASCADE[0m
+  ↳ db/schema.rb:40
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "tag_gossips" ("id" bigserial primary key, "gossip_id" bigint, "tag_id" bigint)[0m
+  ↳ db/schema.rb:40
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE  INDEX  "index_tag_gossips_on_gossip_id" ON "tag_gossips"  ("gossip_id")[0m
+  ↳ db/schema.rb:40
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE  INDEX  "index_tag_gossips_on_tag_id" ON "tag_gossips"  ("tag_id")[0m
+  ↳ db/schema.rb:40
+  [1m[35m (4.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "tags" CASCADE[0m
+  ↳ db/schema.rb:47
+  [1m[35m (8.8ms)[0m  [1m[35mCREATE TABLE "tags" ("id" bigserial primary key, "title" character varying)[0m
+  ↳ db/schema.rb:47
+  [1m[35m (5.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  ↳ db/schema.rb:51
+  [1m[35m (7.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "description" text, "email" character varying, "age" integer, "city_id" bigint, "password_digest" character varying)[0m
+  ↳ db/schema.rb:51
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_city_id" ON "users"  ("city_id")[0m
+  ↳ db/schema.rb:51
+  [1m[35m (7.1ms)[0m  [1m[35mALTER TABLE "gossips" ADD CONSTRAINT "fk_rails_9e6296a836"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  ↳ db/schema.rb:62
+  [1m[35m (3.7ms)[0m  [1m[35mALTER TABLE "tag_gossips" ADD CONSTRAINT "fk_rails_1ccdfdf40d"
+FOREIGN KEY ("gossip_id")
+  REFERENCES "gossips" ("id")
+[0m
+  ↳ db/schema.rb:63
+  [1m[35m (2.6ms)[0m  [1m[35mALTER TABLE "tag_gossips" ADD CONSTRAINT "fk_rails_6332018508"
+FOREIGN KEY ("tag_id")
+  REFERENCES "tags" ("id")
+[0m
+  ↳ db/schema.rb:64
+  [1m[35m (2.0ms)[0m  [1m[35mALTER TABLE "users" ADD CONSTRAINT "fk_rails_9c7442481a"
+FOREIGN KEY ("city_id")
+  REFERENCES "cities" ("id")
+[0m
+  ↳ db/schema.rb:65
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35mSQL (3.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  ↳ db/schema.rb:16
+  [1m[35m (32.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "cities" CASCADE[0m
+  ↳ db/schema.rb:18
+  [1m[35m (32.9ms)[0m  [1m[35mCREATE TABLE "cities" ("id" bigserial primary key, "name" character varying, "zip_code" character varying)[0m
+  ↳ db/schema.rb:18
+  [1m[35m (7.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "gossips" CASCADE[0m
+  ↳ db/schema.rb:23
+  [1m[35m (9.8ms)[0m  [1m[35mCREATE TABLE "gossips" ("id" bigserial primary key, "title" character varying, "content" text, "user_id" bigint, "created_at" timestamp, "updated_at" timestamp)[0m
+  ↳ db/schema.rb:23
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE  INDEX  "index_gossips_on_user_id" ON "gossips"  ("user_id")[0m
+  ↳ db/schema.rb:23
+  [1m[35m (7.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "message_prives" CASCADE[0m
+  ↳ db/schema.rb:32
+  [1m[35m (6.9ms)[0m  [1m[35mCREATE TABLE "message_prives" ("id" bigserial primary key, "recipient_id" bigint, "sender_id" bigint, "content" text)[0m
+  ↳ db/schema.rb:32
+  [1m[35m (6.2ms)[0m  [1m[35mCREATE  INDEX  "index_message_prives_on_recipient_id" ON "message_prives"  ("recipient_id")[0m
+  ↳ db/schema.rb:32
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE  INDEX  "index_message_prives_on_sender_id" ON "message_prives"  ("sender_id")[0m
+  ↳ db/schema.rb:32
+  [1m[35m (5.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "tag_gossips" CASCADE[0m
+  ↳ db/schema.rb:40
+  [1m[35m (6.4ms)[0m  [1m[35mCREATE TABLE "tag_gossips" ("id" bigserial primary key, "gossip_id" bigint, "tag_id" bigint)[0m
+  ↳ db/schema.rb:40
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE  INDEX  "index_tag_gossips_on_gossip_id" ON "tag_gossips"  ("gossip_id")[0m
+  ↳ db/schema.rb:40
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE  INDEX  "index_tag_gossips_on_tag_id" ON "tag_gossips"  ("tag_id")[0m
+  ↳ db/schema.rb:40
+  [1m[35m (3.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "tags" CASCADE[0m
+  ↳ db/schema.rb:47
+  [1m[35m (7.9ms)[0m  [1m[35mCREATE TABLE "tags" ("id" bigserial primary key, "title" character varying)[0m
+  ↳ db/schema.rb:47
+  [1m[35m (6.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  ↳ db/schema.rb:51
+  [1m[35m (26.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "description" text, "email" character varying, "age" integer, "city_id" bigint, "password_digest" character varying)[0m
+  ↳ db/schema.rb:51
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_city_id" ON "users"  ("city_id")[0m
+  ↳ db/schema.rb:51
+  [1m[35m (7.7ms)[0m  [1m[35mALTER TABLE "gossips" ADD CONSTRAINT "fk_rails_9e6296a836"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  ↳ db/schema.rb:62
+  [1m[35m (2.2ms)[0m  [1m[35mALTER TABLE "tag_gossips" ADD CONSTRAINT "fk_rails_1ccdfdf40d"
+FOREIGN KEY ("gossip_id")
+  REFERENCES "gossips" ("id")
+[0m
+  ↳ db/schema.rb:63
+  [1m[35m (2.3ms)[0m  [1m[35mALTER TABLE "tag_gossips" ADD CONSTRAINT "fk_rails_6332018508"
+FOREIGN KEY ("tag_id")
+  REFERENCES "tags" ("id")
+[0m
+  ↳ db/schema.rb:64
+  [1m[35m (2.4ms)[0m  [1m[35mALTER TABLE "users" ADD CONSTRAINT "fk_rails_9c7442481a"
+FOREIGN KEY ("city_id")
+  REFERENCES "cities" ("id")
+[0m
+  ↳ db/schema.rb:65
+  [1m[35m (8.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20191031100002)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (3.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Update (0.4ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "development"], ["updated_at", "2019-10-31 17:11:18.043139"], ["key", "environment"]]
+  ↳ db/schema.rb:13
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Update (0.3ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2019-10-31 17:11:18.054833"], ["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:12
+  [1m[36mMessagePrive Load (0.6ms)[0m  [1m[34mSELECT "message_prives".* FROM "message_prives"[0m
+  ↳ db/seeds.rb:13
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ db/seeds.rb:14
+  [1m[36mTagGossip Load (0.7ms)[0m  [1m[34mSELECT "tag_gossips".* FROM "tag_gossips"[0m
+  ↳ db/seeds.rb:15
+  [1m[36mGossip Load (0.5ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ db/seeds.rb:16
+  [1m[36mCity Load (0.5ms)[0m  [1m[34mSELECT "cities".* FROM "cities"[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:25
+  [1m[36mCity Create (0.6ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Stammmouth"], ["zip_code", "81868"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:25
+  [1m[36mCity Create (0.3ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Reichelburgh"], ["zip_code", "21560"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:25
+  [1m[36mCity Create (0.6ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Lake Corazon"], ["zip_code", "72400"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:25
+  [1m[36mCity Create (0.3ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code") VALUES ($1, $2) RETURNING "id"[0m  [["name", "South Blaine"], ["zip_code", "75268"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:25
+  [1m[36mCity Create (0.3ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Jeninetown"], ["zip_code", "70784-2236"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:25
+  [1m[36mCity Create (0.2ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Lake Earlemouth"], ["zip_code", "47585"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:25
+  [1m[36mCity Create (0.4ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code") VALUES ($1, $2) RETURNING "id"[0m  [["name", "South Pialand"], ["zip_code", "78172-8663"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:25
+  [1m[36mCity Create (0.3ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Lake Clarenceview"], ["zip_code", "03822"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:25
+  [1m[36mCity Create (0.3ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code") VALUES ($1, $2) RETURNING "id"[0m  [["name", "East Paulview"], ["zip_code", "95077-8129"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:25
+  [1m[36mCity Create (0.2ms)[0m  [1m[32mINSERT INTO "cities" ("name", "zip_code") VALUES ($1, $2) RETURNING "id"[0m  [["name", "Lake Cherrylland"], ["zip_code", "48133"]]
+  ↳ db/seeds.rb:25
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:29
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ginny@feil.net"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:29
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "description", "email", "age", "city_id", "password_digest") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "Olin"], ["last_name", "Mills"], ["description", "Alias esse non tempora illum dolor labore assumenda molestiae sit."], ["email", "ginny@feil.net"], ["age", 13], ["city_id", 8], ["password_digest", "$2a$12$0x3fvgzm4kvePkB7y.Vx7OWbvC3OjJn6uqeaMr5nMF5jnLlwbiBia"]]
+  ↳ db/seeds.rb:29
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:29
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:29
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "norman.zieme@hegmann.net"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:29
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "description", "email", "age", "city_id", "password_digest") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "Eddie"], ["last_name", "Hoppe"], ["description", "Aut nobis aspernatur commodi sed dolores molestiae est et et."], ["email", "norman.zieme@hegmann.net"], ["age", 93], ["city_id", 2], ["password_digest", "$2a$12$kKAS2We35tFbbc8WTI5eRuFijUcIqOWGHFX2zk0gWel9BGJE3NKdi"]]
+  ↳ db/seeds.rb:29
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:29
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:29
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mckinley.prohaska@rippin.org"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:29
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "description", "email", "age", "city_id", "password_digest") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "Leisha"], ["last_name", "Osinski"], ["description", "Voluptatem magni quis et optio et esse consequuntur consequatur perspiciatis."], ["email", "mckinley.prohaska@rippin.org"], ["age", 26], ["city_id", 2], ["password_digest", "$2a$12$wJAjFQHeoeFY69eSmSk/sOkGdLraQhH9aeR3cVdXfki67IfZL22mW"]]
+  ↳ db/seeds.rb:29
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:29
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:29
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "moshe_boehm@adamshackett.org"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:29
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "description", "email", "age", "city_id", "password_digest") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "Shela"], ["last_name", "Zulauf"], ["description", "Labore at repudiandae possimus sapiente dolorem facere illum nihil explicabo."], ["email", "moshe_boehm@adamshackett.org"], ["age", 65], ["city_id", 9], ["password_digest", "$2a$12$3psCw5R2XXxbUOxSh9SSTugaB1AYSlRQn1J5Bz1yLfWObikhlu8.m"]]
+  ↳ db/seeds.rb:29
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:29
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:29
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "darwin@lehner.co"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:29
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "description", "email", "age", "city_id", "password_digest") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "Lindsey"], ["last_name", "Yost"], ["description", "Alias nisi dolor autem necessitatibus sunt nostrum est deleniti consectetur."], ["email", "darwin@lehner.co"], ["age", 32], ["city_id", 5], ["password_digest", "$2a$12$Oe2I67Yqut/bQXknP94VcObu7gxb/k83oE3jJ8GQkn13bgipcw8sq"]]
+  ↳ db/seeds.rb:29
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:29
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:29
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "carolina@kuvaliskoch.name"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:29
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "description", "email", "age", "city_id", "password_digest") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "France"], ["last_name", "Farrell"], ["description", "Numquam corporis expedita dignissimos ad officiis mollitia ut assumenda est."], ["email", "carolina@kuvaliskoch.name"], ["age", 25], ["city_id", 3], ["password_digest", "$2a$12$nDcZoalG.xg3CbiwFsBxWOZmnr.CK1IuiW/Gn97shxBVZ5f7RxsHi"]]
+  ↳ db/seeds.rb:29
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:29
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:29
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "twila_mayert@mohr.net"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:29
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "description", "email", "age", "city_id", "password_digest") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "Xiao"], ["last_name", "Spinka"], ["description", "Illo cum harum molestiae omnis assumenda autem magnam corporis sint."], ["email", "twila_mayert@mohr.net"], ["age", 84], ["city_id", 6], ["password_digest", "$2a$12$/QccN8kaLFEd1PtqBuWffus4DTtJCOoa62aoXDV6QurZDbXHBTHaG"]]
+  ↳ db/seeds.rb:29
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:29
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:29
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "antione@nitzsche.info"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:29
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "description", "email", "age", "city_id", "password_digest") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "Cherryl"], ["last_name", "Smitham"], ["description", "Numquam sint non sit officia voluptatem nisi ut ipsam aut."], ["email", "antione@nitzsche.info"], ["age", 21], ["city_id", 6], ["password_digest", "$2a$12$2oK.VJfBjvjFJLplh9PuNOOwXyuyeEgg/t5c3ozDDwNodUkPrU1lu"]]
+  ↳ db/seeds.rb:29
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:29
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:29
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "kenisha@nader.io"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:29
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "description", "email", "age", "city_id", "password_digest") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "Ione"], ["last_name", "Medhurst"], ["description", "Nisi est quisquam quaerat molestiae ipsa eos nulla quia aut."], ["email", "kenisha@nader.io"], ["age", 85], ["city_id", 10], ["password_digest", "$2a$12$f5YhSzc7FGEU1RenxEjrxOupe3fPUChLbckb5swIPWKStgmF0m.hK"]]
+  ↳ db/seeds.rb:29
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:29
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:29
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "darin.little@nader.io"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:29
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "description", "email", "age", "city_id", "password_digest") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "Clemente"], ["last_name", "Mante"], ["description", "Cupiditate nam omnis sit optio qui libero qui est eveniet."], ["email", "darin.little@nader.io"], ["age", 79], ["city_id", 6], ["password_digest", "$2a$12$nYZDwnruPScxWCVsejEKceo9m4R.bXj87LzIp5oCoNjCq62aqY7ky"]]
+  ↳ db/seeds.rb:29
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:29
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:34
+  [1m[36mGossip Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "gossips" WHERE "gossips"."title" = $1 LIMIT $2[0m  [["title", "Mr Standfast"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[36mGossip Create (0.8ms)[0m  [1m[32mINSERT INTO "gossips" ("title", "content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Mr Standfast"], ["content", "Tenetur neque dolore reprehenderit ex non ipsam fuga saepe corporis vero soluta repellendus sequi officia velit omnis vel qui fugiat."], ["user_id", 1], ["created_at", "2019-10-31 17:11:21.023841"], ["updated_at", "2019-10-31 17:11:21.023841"]]
+  ↳ db/seeds.rb:34
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:34
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:34
+  [1m[36mGossip Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "gossips" WHERE "gossips"."title" = $1 LIMIT $2[0m  [["title", "The Moving Toyshop"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[36mGossip Create (0.4ms)[0m  [1m[32mINSERT INTO "gossips" ("title", "content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "The Moving Toyshop"], ["content", "Animi ex voluptatem doloremque nihil asperiores enim et pariatur dignissimos quis consectetur qui deleniti voluptatem expedita non deserunt beatae quia."], ["user_id", 9], ["created_at", "2019-10-31 17:11:21.029445"], ["updated_at", "2019-10-31 17:11:21.029445"]]
+  ↳ db/seeds.rb:34
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:34
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:34
+  [1m[36mGossip Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "gossips" WHERE "gossips"."title" = $1 LIMIT $2[0m  [["title", "Pale Kings and Princes"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:34
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:34
+  [1m[36mGossip Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "gossips" WHERE "gossips"."title" = $1 LIMIT $2[0m  [["title", "A Swiftly Tilting Planet"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:34
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:34
+  [1m[36mGossip Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "gossips" WHERE "gossips"."title" = $1 LIMIT $2[0m  [["title", "Rosemary Sutcliff"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[36mGossip Create (0.4ms)[0m  [1m[32mINSERT INTO "gossips" ("title", "content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Rosemary Sutcliff"], ["content", "Saepe pariatur accusamus nesciunt exercitationem repellat corporis sunt impedit magni natus minus placeat error aperiam illum ut quos repudiandae perspiciatis."], ["user_id", 4], ["created_at", "2019-10-31 17:11:21.040750"], ["updated_at", "2019-10-31 17:11:21.040750"]]
+  ↳ db/seeds.rb:34
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:34
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:34
+  [1m[36mGossip Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "gossips" WHERE "gossips"."title" = $1 LIMIT $2[0m  [["title", "The Mermaids Singing"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[36mGossip Create (0.4ms)[0m  [1m[32mINSERT INTO "gossips" ("title", "content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "The Mermaids Singing"], ["content", "Nostrum odio incidunt aut debitis a veniam minus eveniet fuga nam illum ut odit rerum sed omnis ad velit iusto."], ["user_id", 3], ["created_at", "2019-10-31 17:11:21.055459"], ["updated_at", "2019-10-31 17:11:21.055459"]]
+  ↳ db/seeds.rb:34
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:34
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:34
+  [1m[36mGossip Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "gossips" WHERE "gossips"."title" = $1 LIMIT $2[0m  [["title", "Far From the Madding Crowd"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:34
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:34
+  [1m[36mGossip Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "gossips" WHERE "gossips"."title" = $1 LIMIT $2[0m  [["title", "Those Barren Leaves, Thrones, Dominations"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:34
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:34
+  [1m[36mGossip Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "gossips" WHERE "gossips"."title" = $1 LIMIT $2[0m  [["title", "Tiger! Tiger!"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[36mGossip Create (0.4ms)[0m  [1m[32mINSERT INTO "gossips" ("title", "content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Tiger! Tiger!"], ["content", "Officia delectus sapiente maiores distinctio aut aut repellat minus et et quod corrupti vitae odio quis ut accusamus dolores harum."], ["user_id", 3], ["created_at", "2019-10-31 17:11:21.067748"], ["updated_at", "2019-10-31 17:11:21.067748"]]
+  ↳ db/seeds.rb:34
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:34
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:34
+  [1m[36mGossip Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "gossips" WHERE "gossips"."title" = $1 LIMIT $2[0m  [["title", "Antic Hay"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[36mGossip Create (0.4ms)[0m  [1m[32mINSERT INTO "gossips" ("title", "content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Antic Hay"], ["content", "Sit ipsum adipisci qui aliquam illo suscipit non atque placeat earum ut quaerat enim mollitia labore vel corporis sint molestiae."], ["user_id", 1], ["created_at", "2019-10-31 17:11:21.072628"], ["updated_at", "2019-10-31 17:11:21.072628"]]
+  ↳ db/seeds.rb:34
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:34
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:34
+  [1m[36mGossip Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "gossips" WHERE "gossips"."title" = $1 LIMIT $2[0m  [["title", "A Farewell to Arms"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[36mGossip Create (0.4ms)[0m  [1m[32mINSERT INTO "gossips" ("title", "content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "A Farewell to Arms"], ["content", "Consequatur ad voluptas dignissimos eveniet blanditiis quas aut culpa vel nemo doloremque repellendus quo quis nisi aliquid adipisci aut et."], ["user_id", 7], ["created_at", "2019-10-31 17:11:21.077591"], ["updated_at", "2019-10-31 17:11:21.077591"]]
+  ↳ db/seeds.rb:34
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:34
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:34
+  [1m[36mGossip Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "gossips" WHERE "gossips"."title" = $1 LIMIT $2[0m  [["title", "Alone on a Wide, Wide Sea"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:34
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:34
+  [1m[36mGossip Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "gossips" WHERE "gossips"."title" = $1 LIMIT $2[0m  [["title", "Recalled to Life"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[36mGossip Create (0.5ms)[0m  [1m[32mINSERT INTO "gossips" ("title", "content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Recalled to Life"], ["content", "Iusto non dolores repudiandae autem molestiae voluptate hic harum ut autem quibusdam cumque est saepe mollitia aut quaerat deleniti aut."], ["user_id", 2], ["created_at", "2019-10-31 17:11:21.086761"], ["updated_at", "2019-10-31 17:11:21.086761"]]
+  ↳ db/seeds.rb:34
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:34
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:34
+  [1m[36mGossip Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "gossips" WHERE "gossips"."title" = $1 LIMIT $2[0m  [["title", "Number the Stars"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[36mGossip Create (0.3ms)[0m  [1m[32mINSERT INTO "gossips" ("title", "content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Number the Stars"], ["content", "Eveniet libero officia et non error qui sit et blanditiis in quis ad vitae incidunt amet a voluptatem perspiciatis optio."], ["user_id", 5], ["created_at", "2019-10-31 17:11:21.092030"], ["updated_at", "2019-10-31 17:11:21.092030"]]
+  ↳ db/seeds.rb:34
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:34
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:34
+  [1m[36mGossip Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "gossips" WHERE "gossips"."title" = $1 LIMIT $2[0m  [["title", "The Daffodil Sky"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[36mGossip Create (0.4ms)[0m  [1m[32mINSERT INTO "gossips" ("title", "content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "The Daffodil Sky"], ["content", "Non et molestiae excepturi voluptas officia et facere quibusdam totam eligendi labore numquam inventore qui ea quae ipsam recusandae mollitia."], ["user_id", 10], ["created_at", "2019-10-31 17:11:21.097495"], ["updated_at", "2019-10-31 17:11:21.097495"]]
+  ↳ db/seeds.rb:34
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:34
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:34
+  [1m[36mGossip Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "gossips" WHERE "gossips"."title" = $1 LIMIT $2[0m  [["title", "Beyond the Mexique Bay"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:34
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:34
+  [1m[36mGossip Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "gossips" WHERE "gossips"."title" = $1 LIMIT $2[0m  [["title", "Infinite Jest"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[36mGossip Create (0.3ms)[0m  [1m[32mINSERT INTO "gossips" ("title", "content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Infinite Jest"], ["content", "Qui delectus laboriosam rem error pariatur inventore eius maxime dolores explicabo natus quae provident molestiae at quaerat sit eos et."], ["user_id", 1], ["created_at", "2019-10-31 17:11:21.105375"], ["updated_at", "2019-10-31 17:11:21.105375"]]
+  ↳ db/seeds.rb:34
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:34
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:34
+  [1m[36mGossip Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "gossips" WHERE "gossips"."title" = $1 LIMIT $2[0m  [["title", "Frequent Hearses"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[36mGossip Create (0.3ms)[0m  [1m[32mINSERT INTO "gossips" ("title", "content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Frequent Hearses"], ["content", "Atque provident exercitationem saepe animi quas voluptatem sapiente necessitatibus sunt rem a vitae qui delectus voluptates ea vel aut quod."], ["user_id", 10], ["created_at", "2019-10-31 17:11:21.110750"], ["updated_at", "2019-10-31 17:11:21.110750"]]
+  ↳ db/seeds.rb:34
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:34
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:34
+  [1m[36mGossip Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "gossips" WHERE "gossips"."title" = $1 LIMIT $2[0m  [["title", "Absalom, Absalom!"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[36mGossip Create (0.4ms)[0m  [1m[32mINSERT INTO "gossips" ("title", "content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Absalom, Absalom!"], ["content", "Ipsam occaecati itaque quia incidunt qui in eum quo veniam impedit sapiente officia magnam et dicta sint distinctio omnis cupiditate."], ["user_id", 10], ["created_at", "2019-10-31 17:11:21.116364"], ["updated_at", "2019-10-31 17:11:21.116364"]]
+  ↳ db/seeds.rb:34
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:34
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:34
+  [1m[36mGossip Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "gossips" WHERE "gossips"."title" = $1 LIMIT $2[0m  [["title", "What's Become of Waring"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:34
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:34
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:38
+  [1m[36mTag Create (0.5ms)[0m  [1m[32mINSERT INTO "tags" ("title") VALUES ($1) RETURNING "id"[0m  [["title", "The Lathe of Heaven"]]
+  ↳ db/seeds.rb:38
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:38
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:38
+  [1m[36mTag Create (0.4ms)[0m  [1m[32mINSERT INTO "tags" ("title") VALUES ($1) RETURNING "id"[0m  [["title", "Nectar in a Sieve"]]
+  ↳ db/seeds.rb:38
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:38
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:38
+  [1m[36mTag Create (0.3ms)[0m  [1m[32mINSERT INTO "tags" ("title") VALUES ($1) RETURNING "id"[0m  [["title", "Mother Night"]]
+  ↳ db/seeds.rb:38
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:38
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:38
+  [1m[36mTag Create (0.3ms)[0m  [1m[32mINSERT INTO "tags" ("title") VALUES ($1) RETURNING "id"[0m  [["title", "A Time to Kill"]]
+  ↳ db/seeds.rb:38
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:38
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:38
+  [1m[36mTag Create (0.3ms)[0m  [1m[32mINSERT INTO "tags" ("title") VALUES ($1) RETURNING "id"[0m  [["title", "Ego Dominus Tuus"]]
+  ↳ db/seeds.rb:38
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:38
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:38
+  [1m[36mTag Create (0.4ms)[0m  [1m[32mINSERT INTO "tags" ("title") VALUES ($1) RETURNING "id"[0m  [["title", "Wildfire at Midnight"]]
+  ↳ db/seeds.rb:38
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:38
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:38
+  [1m[36mTag Create (0.3ms)[0m  [1m[32mINSERT INTO "tags" ("title") VALUES ($1) RETURNING "id"[0m  [["title", "No Country for Old Men"]]
+  ↳ db/seeds.rb:38
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:38
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:38
+  [1m[36mTag Create (0.3ms)[0m  [1m[32mINSERT INTO "tags" ("title") VALUES ($1) RETURNING "id"[0m  [["title", "Fair Stood the Wind for France"]]
+  ↳ db/seeds.rb:38
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:38
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:38
+  [1m[36mTag Create (0.3ms)[0m  [1m[32mINSERT INTO "tags" ("title") VALUES ($1) RETURNING "id"[0m  [["title", "A Passage to India"]]
+  ↳ db/seeds.rb:38
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:38
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:38
+  [1m[36mTag Create (0.3ms)[0m  [1m[32mINSERT INTO "tags" ("title") VALUES ($1) RETURNING "id"[0m  [["title", "Vile Bodies"]]
+  ↳ db/seeds.rb:38
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:38
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:43
+  [1m[36mTagGossip Create (0.9ms)[0m  [1m[32mINSERT INTO "tag_gossips" ("gossip_id", "tag_id") VALUES ($1, $2) RETURNING "id"[0m  [["gossip_id", 10], ["tag_id", 8]]
+  ↳ db/seeds.rb:43
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:43
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:43
+  [1m[36mTagGossip Create (0.4ms)[0m  [1m[32mINSERT INTO "tag_gossips" ("gossip_id", "tag_id") VALUES ($1, $2) RETURNING "id"[0m  [["gossip_id", 7], ["tag_id", 8]]
+  ↳ db/seeds.rb:43
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:43
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:43
+  [1m[36mTagGossip Create (0.5ms)[0m  [1m[32mINSERT INTO "tag_gossips" ("gossip_id", "tag_id") VALUES ($1, $2) RETURNING "id"[0m  [["gossip_id", 3], ["tag_id", 5]]
+  ↳ db/seeds.rb:43
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:43
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:43
+  [1m[36mTagGossip Create (0.5ms)[0m  [1m[32mINSERT INTO "tag_gossips" ("gossip_id", "tag_id") VALUES ($1, $2) RETURNING "id"[0m  [["gossip_id", 1], ["tag_id", 10]]
+  ↳ db/seeds.rb:43
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:43
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:43
+  [1m[36mTagGossip Create (0.5ms)[0m  [1m[32mINSERT INTO "tag_gossips" ("gossip_id", "tag_id") VALUES ($1, $2) RETURNING "id"[0m  [["gossip_id", 8], ["tag_id", 7]]
+  ↳ db/seeds.rb:43
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:43
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:43
+  [1m[36mTagGossip Create (0.4ms)[0m  [1m[32mINSERT INTO "tag_gossips" ("gossip_id", "tag_id") VALUES ($1, $2) RETURNING "id"[0m  [["gossip_id", 13], ["tag_id", 7]]
+  ↳ db/seeds.rb:43
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:43
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:43
+  [1m[36mTagGossip Create (0.4ms)[0m  [1m[32mINSERT INTO "tag_gossips" ("gossip_id", "tag_id") VALUES ($1, $2) RETURNING "id"[0m  [["gossip_id", 4], ["tag_id", 7]]
+  ↳ db/seeds.rb:43
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:43
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:43
+  [1m[36mGossip Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "gossips" WHERE "gossips"."title" = $1 LIMIT $2[0m  [["title", "Far From the Madding Crowd"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:43
+  [1m[36mTagGossip Create (0.3ms)[0m  [1m[32mINSERT INTO "tag_gossips" ("tag_id") VALUES ($1) RETURNING "id"[0m  [["tag_id", 8]]
+  ↳ db/seeds.rb:43
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:43
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:43
+  [1m[36mTagGossip Create (0.4ms)[0m  [1m[32mINSERT INTO "tag_gossips" ("gossip_id", "tag_id") VALUES ($1, $2) RETURNING "id"[0m  [["gossip_id", 1], ["tag_id", 10]]
+  ↳ db/seeds.rb:43
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:43
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:43
+  [1m[36mTagGossip Create (0.3ms)[0m  [1m[32mINSERT INTO "tag_gossips" ("gossip_id", "tag_id") VALUES ($1, $2) RETURNING "id"[0m  [["gossip_id", 6], ["tag_id", 6]]
+  ↳ db/seeds.rb:43
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:43
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:50
+  [1m[36mMessagePrive Create (0.6ms)[0m  [1m[32mINSERT INTO "message_prives" ("recipient_id", "sender_id", "content") VALUES ($1, $2, $3) RETURNING "id"[0m  [["recipient_id", 4], ["sender_id", 8], ["content", "Nesciunt est aperiam non voluptate itaque debitis dolor nobis molestiae voluptatem excepturi ut voluptates saepe aut asperiores similique quaerat sapiente."]]
+  ↳ db/seeds.rb:50
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:50
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:50
+  [1m[36mMessagePrive Create (0.3ms)[0m  [1m[32mINSERT INTO "message_prives" ("recipient_id", "sender_id", "content") VALUES ($1, $2, $3) RETURNING "id"[0m  [["recipient_id", 10], ["sender_id", 9], ["content", "Laboriosam quae distinctio ipsum earum aliquid hic sapiente expedita non et labore iste facere sint reiciendis tenetur fugiat optio perspiciatis."]]
+  ↳ db/seeds.rb:50
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:50
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:53
+  [1m[36mCity Create (0.3ms)[0m  [1m[32mINSERT INTO "cities" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "MTP"]]
+  ↳ db/seeds.rb:53
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:53
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:54
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "anony@mous.fr"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:54
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:54
+Started GET "/gossips" for ::1 at 2019-10-31 18:12:48 +0100
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/leabramoulle/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by GossipsController#index as HTML
+  Rendering gossips/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mGossip Load (0.6ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossips/index.html.erb:45
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  Rendered gossips/index.html.erb within layouts/application (65.7ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+Completed 200 OK in 478ms (Views: 436.5ms | ActiveRecord: 16.0ms)
+
+
+Started GET "/sessions/new" for ::1 at 2019-10-31 18:13:05 +0100
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.8ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+Completed 200 OK in 55ms (Views: 51.0ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/sessions" for ::1 at 2019-10-31 18:13:09 +0100
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Prt67RFuEpmJG/SEoG7wixhsolLXyGTbxoACCJec0WMhWHp4UaFs1UBvrChIUg7GXMNhIG70uzI306EurIdAOQ==", "email"=>"bourrachaw@mail.fr", "password"=>"[FILTERED]", "commit"=>"Me connecter"}
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bourrachaw@mail.fr"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:13
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+Completed 200 OK in 69ms (Views: 56.9ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/author/new" for ::1 at 2019-10-31 18:13:13 +0100
+Processing by AuthorController#new as HTML
+  Rendering author/new.html.erb within layouts/application
+  Rendered author/new.html.erb within layouts/application (1.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+Completed 200 OK in 53ms (Views: 49.6ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/author" for ::1 at 2019-10-31 18:13:40 +0100
+Processing by AuthorController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XTFOwUb6uqJd4Men3tN3epZjXRXlQXA7+ItudCiTUkGMcAz24ljoOfL2K2jGvbdjafNnSCiuTr7IR+vPsz36jw==", "first_name"=>"Bourrachaw", "last_name"=>"ChawChawChaw", "description"=>"J'ai écrit un court poème. Le Ciel ", "age"=>"24", "email"=>"bourrachaw@mail.fr", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "commit"=>"M'inscrire"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/author_controller.rb:26
+  [1m[36mCity Load (0.4ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/author_controller.rb:26
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bourrachaw@mail.fr"], ["LIMIT", 1]]
+  ↳ app/controllers/author_controller.rb:26
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "description", "email", "age", "city_id", "password_digest") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "Bourrachaw"], ["last_name", "ChawChawChaw"], ["description", "J'ai écrit un court poème. Le Ciel "], ["email", "bourrachaw@mail.fr"], ["age", 24], ["city_id", 4], ["password_digest", "$2a$12$ej0NaWNe1CCZN6.o6Al.uutfUms5gRd6VUGZIHHvfNf.BxkepEvjy"]]
+  ↳ app/controllers/author_controller.rb:26
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/author_controller.rb:26
+Redirected to http://localhost:3000/gossips
+Completed 302 Found in 315ms (ActiveRecord: 6.0ms)
+
+
+Started GET "/gossips" for ::1 at 2019-10-31 18:13:41 +0100
+Processing by GossipsController#index as HTML
+  Rendering gossips/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mGossip Load (0.4ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossips/index.html.erb:45
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  Rendered gossips/index.html.erb within layouts/application (30.9ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+Completed 200 OK in 78ms (Views: 72.0ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/gossips/10" for ::1 at 2019-10-31 18:14:57 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  Rendering gossips/show.html.erb within layouts/application
+  [1m[36mGossip Load (0.4ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:17
+  [1m[36mCACHE Gossip Load (0.0ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:24
+  [1m[36mCACHE Gossip Load (0.0ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:25
+  [1m[36mCACHE Gossip Load (0.0ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:26
+  [1m[36mCACHE Gossip Load (0.0ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:27
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:27
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:27
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE Gossip Load (0.0ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:33
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:49
+  Rendered gossips/show.html.erb within layouts/application (13.6ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+Completed 200 OK in 81ms (Views: 73.7ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/gossips/5" for ::1 at 2019-10-31 18:15:04 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  Rendering gossips/show.html.erb within layouts/application
+  [1m[36mGossip Load (0.4ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:17
+  [1m[36mCACHE Gossip Load (0.0ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:24
+  [1m[36mCACHE Gossip Load (0.0ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:25
+  [1m[36mCACHE Gossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:26
+  [1m[36mCACHE Gossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:27
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:27
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:27
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE Gossip Load (0.0ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:33
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:49
+  Rendered gossips/show.html.erb within layouts/application (13.7ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+Completed 200 OK in 74ms (Views: 63.6ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/author/3" for ::1 at 2019-10-31 18:15:06 +0100
+Processing by AuthorController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/author_controller.rb:11
+  Rendering author/show.html.erb within layouts/application
+  Rendered author/show.html.erb within layouts/application (1.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+Completed 200 OK in 61ms (Views: 55.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/cities/2" for ::1 at 2019-10-31 18:15:09 +0100
+Processing by CitiesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:12
+  Rendering cities/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."city_id" = $1[0m  [["city_id", 2]]
+  ↳ app/views/cities/show.html.erb:35
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips" WHERE "gossips"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/views/cities/show.html.erb:42
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips" WHERE "gossips"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/views/cities/show.html.erb:42
+  Rendered cities/show.html.erb within layouts/application (6.4ms)
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+Completed 200 OK in 59ms (Views: 53.1ms | ActiveRecord: 2.2ms)
+
+
