@@ -48334,3 +48334,1054 @@ Processing by SessionsController#new as HTML
 Completed 200 OK in 70ms (Views: 67.5ms | ActiveRecord: 0.5ms)
 
 
+Started GET "/sessions/new" for ::1 at 2019-10-31 16:27:26 +0100
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/leabramoulle/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (4.3ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+Completed 200 OK in 303ms (Views: 290.3ms | ActiveRecord: 4.2ms)
+
+
+Started POST "/sessions" for ::1 at 2019-10-31 16:27:32 +0100
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DhX4QvWigBFKy82uyoQIFocwVxcO4Atm3cBrKscC/oTK3U9Yvu1XBabfXnoQ4WC95TwVI+UW0ixpTZFK/t8PAw==", "email"=>"louu@mail.fr", "password"=>"[FILTERED]", "commit"=>"Me connecter"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "louu@mail.fr"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:13
+Redirected to http://localhost:3000/gossips
+Completed 302 Found in 298ms (ActiveRecord: 6.7ms)
+
+
+Started GET "/gossips" for ::1 at 2019-10-31 16:27:32 +0100
+Processing by GossipsController#index as HTML
+  Rendering gossips/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mGossip Load (0.6ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossips/index.html.erb:45
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  Rendered gossips/index.html.erb within layouts/application (36.4ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+Completed 200 OK in 133ms (Views: 121.9ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/gossips/3" for ::1 at 2019-10-31 16:27:49 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  Rendering gossips/show.html.erb within layouts/application
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:17
+  [1m[36mCACHE Gossip Load (0.0ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:22
+  [1m[36mCACHE Gossip Load (0.0ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:23
+  [1m[36mCACHE Gossip Load (0.0ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:24
+  [1m[36mCACHE Gossip Load (0.0ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:25
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:25
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:25
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:43
+  Rendered gossips/show.html.erb within layouts/application (13.1ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+Completed 200 OK in 67ms (Views: 62.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/gossips" for ::1 at 2019-10-31 16:33:03 +0100
+Processing by GossipsController#index as HTML
+  Rendering gossips/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mGossip Load (0.5ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossips/index.html.erb:45
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  Rendered gossips/index.html.erb within layouts/application (54.9ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+Completed 200 OK in 150ms (Views: 123.9ms | ActiveRecord: 9.5ms)
+
+
+Started GET "/gossips/10" for ::1 at 2019-10-31 16:33:09 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  Rendering gossips/show.html.erb within layouts/application
+  [1m[36mGossip Load (0.6ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:17
+  [1m[36mCACHE Gossip Load (0.0ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:22
+  [1m[36mCACHE Gossip Load (0.0ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:23
+  [1m[36mCACHE Gossip Load (0.0ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:24
+  [1m[36mCACHE Gossip Load (0.0ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:25
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:25
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:25
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:43
+  Rendered gossips/show.html.erb within layouts/application (12.8ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+Completed 200 OK in 78ms (Views: 72.7ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/gossips/10/edit" for ::1 at 2019-10-31 16:33:11 +0100
+Processing by GossipsController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mGossip Load (0.5ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/gossips_controller.rb:54
+  Rendering gossips/edit.html.erb within layouts/application
+  Rendered gossips/edit.html.erb within layouts/application (1.3ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+Completed 200 OK in 86ms (Views: 74.4ms | ActiveRecord: 1.0ms)
+
+
+Started PATCH "/gossips/10" for ::1 at 2019-10-31 16:33:13 +0100
+Processing by GossipsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bgsoYFyxPZ/PvI98y5PdMR+GRqaLtfK1Dqf770Se3/jSu3uPaDB/5vyzBgVdzRqhZZolSrCT1yhf1VUIt2GQyw==", "title"=>"", "content"=>"", "commit"=>"Modifier le Gossip", "id"=>"10"}
+  [1m[36mGossip Load (1.0ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/gossips_controller.rb:62
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 1.0ms)
+
+
+  
+NoMethodError (undefined method `user_id' for nil:NilClass):
+  
+app/controllers/gossips_controller.rb:64:in `update'
+Started GET "/gossips/10/edit" for ::1 at 2019-10-31 16:34:17 +0100
+Processing by GossipsController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/gossips_controller.rb:54
+  Rendering gossips/edit.html.erb within layouts/application
+  Rendered gossips/edit.html.erb within layouts/application (1.8ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+Completed 200 OK in 90ms (Views: 52.4ms | ActiveRecord: 7.4ms)
+
+
+Started GET "/gossips/10" for ::1 at 2019-10-31 16:34:23 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  Rendering gossips/show.html.erb within layouts/application
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:17
+  [1m[36mCACHE Gossip Load (0.0ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:22
+  [1m[36mCACHE Gossip Load (0.0ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:23
+  [1m[36mCACHE Gossip Load (0.0ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:24
+  [1m[36mCACHE Gossip Load (0.0ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:25
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:25
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:25
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:43
+  Rendered gossips/show.html.erb within layouts/application (10.6ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+Completed 200 OK in 97ms (Views: 89.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/gossips/10/edit" for ::1 at 2019-10-31 16:34:25 +0100
+Processing by GossipsController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (32.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mGossip Load (4.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/gossips_controller.rb:54
+  Rendering gossips/edit.html.erb within layouts/application
+  Rendered gossips/edit.html.erb within layouts/application (1.6ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+Completed 200 OK in 102ms (Views: 53.7ms | ActiveRecord: 36.4ms)
+
+
+Started GET "/gossips/10/edit" for ::1 at 2019-10-31 16:37:58 +0100
+Processing by GossipsController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/gossips_controller.rb:54
+  Rendering gossips/edit.html.erb within layouts/application
+  Rendered gossips/edit.html.erb within layouts/application (2.0ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+Completed 200 OK in 118ms (Views: 64.2ms | ActiveRecord: 13.7ms)
+
+
+Started GET "/gossips/10" for ::1 at 2019-10-31 16:37:59 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  Rendering gossips/show.html.erb within layouts/application
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:17
+  [1m[36mCACHE Gossip Load (0.0ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:22
+  [1m[36mCACHE Gossip Load (0.0ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:23
+  [1m[36mCACHE Gossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:24
+  [1m[36mCACHE Gossip Load (0.0ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:25
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:25
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:25
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:43
+  Rendered gossips/show.html.erb within layouts/application (12.1ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+Completed 200 OK in 74ms (Views: 66.7ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/gossips" for ::1 at 2019-10-31 16:38:01 +0100
+Processing by GossipsController#index as HTML
+  Rendering gossips/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mGossip Load (1.6ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossips/index.html.erb:45
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  Rendered gossips/index.html.erb within layouts/application (24.1ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+Completed 200 OK in 104ms (Views: 95.9ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/gossips/3" for ::1 at 2019-10-31 16:38:04 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  Rendering gossips/show.html.erb within layouts/application
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:17
+  [1m[36mCACHE Gossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:22
+  [1m[36mCACHE Gossip Load (0.0ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:23
+  [1m[36mCACHE Gossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:24
+  [1m[36mCACHE Gossip Load (0.0ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:25
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:25
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:25
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:43
+  Rendered gossips/show.html.erb within layouts/application (9.3ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+Completed 200 OK in 72ms (Views: 66.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/gossips/3/edit" for ::1 at 2019-10-31 16:38:06 +0100
+Processing by GossipsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/gossips_controller.rb:54
+  Rendering gossips/edit.html.erb within layouts/application
+  Rendered gossips/edit.html.erb within layouts/application (1.3ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+Completed 200 OK in 60ms (Views: 56.0ms | ActiveRecord: 0.5ms)
+
+
+Started PATCH "/gossips/3" for ::1 at 2019-10-31 16:38:16 +0100
+Processing by GossipsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rNkjmyHefRu3roUfj8ncb415QIP7sd3S+KBTr0wjrdNfmiF49s57yrQ+I2Ce5Fb6yvLS+A/Vt+KHllhnH9ZLKg==", "title"=>"je dois pas modif", "content"=>"est ce que ca modiffff", "commit"=>"Modifier le Gossip", "id"=>"3"}
+  [1m[36mGossip Load (0.4ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/gossips_controller.rb:62
+No template found for GossipsController#update, rendering head :no_content
+Completed 204 No Content in 118ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/gossips/3" for ::1 at 2019-10-31 16:43:03 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  Rendering gossips/show.html.erb within layouts/application
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:17
+  [1m[36mCACHE Gossip Load (0.0ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:22
+  [1m[36mCACHE Gossip Load (0.0ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:23
+  [1m[36mCACHE Gossip Load (0.0ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:24
+  [1m[36mCACHE Gossip Load (0.0ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:25
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:25
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:25
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:43
+  Rendered gossips/show.html.erb within layouts/application (18.4ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+Completed 200 OK in 87ms (Views: 59.7ms | ActiveRecord: 6.7ms)
+
+
+Started GET "/gossips/3/edit" for ::1 at 2019-10-31 16:43:04 +0100
+Processing by GossipsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mGossip Load (0.7ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/gossips_controller.rb:54
+  Rendering gossips/edit.html.erb within layouts/application
+  Rendered gossips/edit.html.erb within layouts/application (1.8ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+Completed 200 OK in 65ms (Views: 55.5ms | ActiveRecord: 1.7ms)
+
+
+Started PATCH "/gossips/3" for ::1 at 2019-10-31 16:43:05 +0100
+Processing by GossipsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"S1eCDeVwgGRqWa9mn1sMR1JCUEgD1SMAmANlUD08c5C4FIDuMmCGtWnJCRmOdobSFcnCM/exSTDnNW6YbsmVaQ==", "title"=>"", "content"=>"", "commit"=>"Modifier le Gossip", "id"=>"3"}
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/gossips_controller.rb:62
+Redirected to http://localhost:3000gossips_path
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+
+
+Started PATCH "/gossips/3" for ::1 at 2019-10-31 16:43:28 +0100
+Processing by GossipsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HjiqeCUHlHpPi01NK9tpvDXVzSoUMiWRl5vFwe0QYX3a8B1ibkhDbqOf3pnxvgEXV9mPHv/E/NsjFj+h1M2Q+g==", "title"=>"razmliroparz", "content"=>"zarlmazrlmazoriazr", "commit"=>"Modifier le Gossip", "id"=>"3"}
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/gossips_controller.rb:62
+Redirected to http://localhost:3000gossips_path
+Completed 302 Found in 16ms (ActiveRecord: 3.7ms)
+
+
+Started GET "/gossips/3" for ::1 at 2019-10-31 16:43:32 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  Rendering gossips/show.html.erb within layouts/application
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:17
+  [1m[36mCACHE Gossip Load (0.0ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:22
+  [1m[36mCACHE Gossip Load (0.0ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:23
+  [1m[36mCACHE Gossip Load (0.0ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:24
+  [1m[36mCACHE Gossip Load (0.0ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:25
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:25
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:25
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:43
+  Rendered gossips/show.html.erb within layouts/application (10.7ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+Completed 200 OK in 107ms (Views: 79.6ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/gossips/3/edit" for ::1 at 2019-10-31 16:43:57 +0100
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/leabramoulle/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by GossipsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mGossip Load (0.5ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/gossips_controller.rb:54
+  Rendering gossips/edit.html.erb within layouts/application
+  Rendered gossips/edit.html.erb within layouts/application (3.5ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+Completed 200 OK in 348ms (Views: 292.5ms | ActiveRecord: 8.9ms)
+
+
+Started PATCH "/gossips/3" for ::1 at 2019-10-31 16:44:02 +0100
+Processing by GossipsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+DdhNaJwgqsLz5jR9co4qYq0+L4zs9++T0mV7exmnkcLdGPWdWCEeghfPq7k57I8zT9qxcfXtY4wf54lv5N4vg==", "title"=>"azeazeaze", "content"=>"ezùmakeamzùkeaz", "commit"=>"Modifier le Gossip", "id"=>"3"}
+  [1m[36mGossip Load (0.5ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/gossips_controller.rb:62
+Redirected to http://localhost:3000gossips_path
+Completed 302 Found in 5ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/gossips/3/edit" for ::1 at 2019-10-31 16:44:15 +0100
+Processing by GossipsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/gossips_controller.rb:54
+  Rendering gossips/edit.html.erb within layouts/application
+  Rendered gossips/edit.html.erb within layouts/application (1.9ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+Completed 200 OK in 96ms (Views: 56.0ms | ActiveRecord: 10.3ms)
+
+
+Started PATCH "/gossips/3" for ::1 at 2019-10-31 16:44:20 +0100
+Processing by GossipsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NmY66BXf86BpVIdO2Uzp0UiqCgLP2wkYoPBIxqHQSV3yro3yXpAktIVAFJoDKYF6KqZINiQt0FIUfbKmmA242g==", "title"=>"razrazra", "content"=>"azmelkazmemazieaz", "commit"=>"Modifier le Gossip", "id"=>"3"}
+  [1m[36mGossip Load (0.9ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/gossips_controller.rb:62
+No template found for GossipsController#update, rendering head :no_content
+Completed 204 No Content in 127ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/gossips/3" for ::1 at 2019-10-31 16:44:22 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  Rendering gossips/show.html.erb within layouts/application
+  [1m[36mGossip Load (0.8ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:17
+  [1m[36mCACHE Gossip Load (0.0ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:22
+  [1m[36mCACHE Gossip Load (0.0ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:23
+  [1m[36mCACHE Gossip Load (0.0ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:24
+  [1m[36mCACHE Gossip Load (0.0ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:25
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:25
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:25
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:43
+  Rendered gossips/show.html.erb within layouts/application (38.1ms)
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+Completed 200 OK in 108ms (Views: 100.0ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/gossips/3" for ::1 at 2019-10-31 16:45:53 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  Rendering gossips/show.html.erb within layouts/application
+  [1m[36mGossip Load (0.4ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:17
+  [1m[36mCACHE Gossip Load (0.0ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:22
+  [1m[36mCACHE Gossip Load (0.1ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:23
+  [1m[36mCACHE Gossip Load (0.0ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:24
+  [1m[36mCACHE Gossip Load (0.0ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:25
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:25
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:25
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  Rendered gossips/show.html.erb within layouts/application (26.0ms)
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 2.1ms)
+
+
+  
+ActionView::Template::Error (undefined method `user_id' for nil:NilClass):
+    40: 
+    41: <center>
+    42: 
+    43:   <% unless compare_user(session[:user_id], @gossippp.user_id) == false %>
+    44: 
+    45:   <a href="<%=author_path(h)%>" class="btn btn-outline-light" style="border-color:#62DDB9; color:#62DDB9;"> Lien vers la page du Gossipeur </a>
+    46: 
+  
+app/views/gossips/show.html.erb:43:in `_app_views_gossips_show_html_erb___4043376398844496356_70202206656200'
+Started GET "/gossips/3" for ::1 at 2019-10-31 16:46:47 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  Rendering gossips/show.html.erb within layouts/application
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:17
+  [1m[36mCACHE Gossip Load (0.0ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:22
+  [1m[36mCACHE Gossip Load (0.0ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:23
+  [1m[36mCACHE Gossip Load (0.0ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:24
+  [1m[36mCACHE Gossip Load (0.0ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:25
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:25
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:25
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/leabramoulle/.rvm/rubies/ruby-2.5.1/lib/ruby/gems/2.5.0/gems/did_you_mean-1.2.0/lib/did_you_mean/core_ext/name_error.rb:8
+  Rendered gossips/show.html.erb within layouts/application (22.1ms)
+Completed 500 Internal Server Error in 34ms (ActiveRecord: 1.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `user_id' for #<Gossip::ActiveRecord_Relation:0x00007fb276e8e880>):
+    40: 
+    41: <center>
+    42: 
+    43:   <% unless compare_user(session[:user_id], @gossip.user_id) == false %>
+    44: 
+    45:   <a href="<%=author_path(h)%>" class="btn btn-outline-light" style="border-color:#62DDB9; color:#62DDB9;"> Lien vers la page du Gossipeur </a>
+    46: 
+  
+app/views/gossips/show.html.erb:43:in `_app_views_gossips_show_html_erb___4043376398844496356_70202237938040'
+Started GET "/gossips/3" for ::1 at 2019-10-31 16:46:48 +0100
+Processing by GossipsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  Rendering gossips/show.html.erb within layouts/application
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:17
+  [1m[36mCACHE Gossip Load (0.0ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:22
+  [1m[36mCACHE Gossip Load (0.0ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:23
+  [1m[36mCACHE Gossip Load (0.0ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:24
+  [1m[36mCACHE Gossip Load (0.0ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:25
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:25
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/gossips/show.html.erb:25
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ /Users/leabramoulle/.rvm/rubies/ruby-2.5.1/lib/ruby/gems/2.5.0/gems/did_you_mean-1.2.0/lib/did_you_mean/core_ext/name_error.rb:8
+  Rendered gossips/show.html.erb within layouts/application (19.1ms)
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 1.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `user_id' for #<Gossip::ActiveRecord_Relation:0x00007fb27809b500>):
+    40: 
+    41: <center>
+    42: 
+    43:   <% unless compare_user(session[:user_id], @gossip.user_id) == false %>
+    44: 
+    45:   <a href="<%=author_path(h)%>" class="btn btn-outline-light" style="border-color:#62DDB9; color:#62DDB9;"> Lien vers la page du Gossipeur </a>
+    46: 
+  
+app/views/gossips/show.html.erb:43:in `_app_views_gossips_show_html_erb___4043376398844496356_70202247401800'
+Started GET "/gossips" for ::1 at 2019-10-31 16:47:16 +0100
+Processing by GossipsController#index as HTML
+  Rendering gossips/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mGossip Load (0.6ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossips/index.html.erb:45
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  Rendered gossips/index.html.erb within layouts/application (17.8ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+Completed 200 OK in 68ms (Views: 61.8ms | ActiveRecord: 1.9ms)
+
+
+Started DELETE "/gossips/3" for ::1 at 2019-10-31 16:47:22 +0100
+Processing by GossipsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"z4EzuE4ogpk/sF/Dee/wHGVIIRLyb7vn9QJrOVDT78gLSYSiBWdVjdOkzBejipi3B0RjJhmZYq1Bj5FZaQ4eTw==", "id"=>"3"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mGossip Load (1.7ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/gossips_controller.rb:80
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 2.2ms)
+
+
+  
+NoMethodError (undefined method `user_id' for nil:NilClass):
+  
+app/controllers/gossips_controller.rb:82:in `destroy'
+Started GET "/gossips" for ::1 at 2019-10-31 16:47:43 +0100
+Processing by GossipsController#index as HTML
+  Rendering gossips/index.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossips/index.html.erb:45
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  Rendered gossips/index.html.erb within layouts/application (23.4ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+Completed 200 OK in 91ms (Views: 85.5ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/gossips" for ::1 at 2019-10-31 16:47:44 +0100
+Processing by GossipsController#index as HTML
+  Rendering gossips/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossips/index.html.erb:45
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  Rendered gossips/index.html.erb within layouts/application (26.5ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+Completed 200 OK in 114ms (Views: 106.1ms | ActiveRecord: 2.1ms)
+
+
+Started DELETE "/gossips/3" for ::1 at 2019-10-31 16:47:47 +0100
+Processing by GossipsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"YEYwmFeGSHEH1ljy2b45NWZ+vLATKZINVYwA5J/zjwOkjoeCHMmfZevCyyYD21GeBHL+hPjfS0fhAfqEpi5+hA==", "id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mGossip Load (0.4ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/gossips_controller.rb:80
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.8ms)
+
+
+  
+NoMethodError (undefined method `user_id' for nil:NilClass):
+  
+app/controllers/gossips_controller.rb:82:in `destroy'
+Started DELETE "/gossips/3" for ::1 at 2019-10-31 16:48:17 +0100
+Processing by GossipsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"YEYwmFeGSHEH1ljy2b45NWZ+vLATKZINVYwA5J/zjwOkjoeCHMmfZevCyyYD21GeBHL+hPjfS0fhAfqEpi5+hA==", "id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/gossips_controller.rb:80
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.7ms)
+
+
+  
+NoMethodError (undefined method `user_id' for nil:NilClass):
+  
+app/controllers/gossips_controller.rb:82:in `destroy'
+Started DELETE "/gossips/3" for ::1 at 2019-10-31 16:48:22 +0100
+Processing by GossipsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"YEYwmFeGSHEH1ljy2b45NWZ+vLATKZINVYwA5J/zjwOkjoeCHMmfZevCyyYD21GeBHL+hPjfS0fhAfqEpi5+hA==", "id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mGossip Load (0.7ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/gossips_controller.rb:80
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 1.1ms)
+
+
+  
+NoMethodError (undefined method `user_id' for nil:NilClass):
+  
+app/controllers/gossips_controller.rb:82:in `destroy'
+Started DELETE "/gossips/3" for ::1 at 2019-10-31 16:48:51 +0100
+Processing by GossipsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"YEYwmFeGSHEH1ljy2b45NWZ+vLATKZINVYwA5J/zjwOkjoeCHMmfZevCyyYD21GeBHL+hPjfS0fhAfqEpi5+hA==", "id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/gossips_controller.rb:80
+No template found for GossipsController#destroy, rendering head :no_content
+Completed 204 No Content in 169ms (ActiveRecord: 7.0ms)
+
+
+Started GET "/" for ::1 at 2019-10-31 16:48:55 +0100
+Processing by GossipsController#index as HTML
+  Rendering gossips/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mGossip Load (0.6ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossips/index.html.erb:45
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  Rendered gossips/index.html.erb within layouts/application (32.6ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+Completed 200 OK in 160ms (Views: 151.4ms | ActiveRecord: 2.7ms)
+
+
+Started DELETE "/gossips/3" for ::1 at 2019-10-31 16:49:00 +0100
+Processing by GossipsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"coAy3ffK6M6gcFCYFthZflaP62Ecn47xIH7I2nSVypa2SIXHvIU/2kxkw0zMvTHVNIOpVfdpV7uU8zK6TUg7EQ==", "id"=>"3"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mGossip Load (0.4ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/gossips_controller.rb:80
+No template found for GossipsController#destroy, rendering head :no_content
+Completed 204 No Content in 128ms (ActiveRecord: 1.3ms)
+
+
+Started DELETE "/gossips/3" for ::1 at 2019-10-31 16:49:04 +0100
+Processing by GossipsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"coAy3ffK6M6gcFCYFthZflaP62Ecn47xIH7I2nSVypa2SIXHvIU/2kxkw0zMvTHVNIOpVfdpV7uU8zK6TUg7EQ==", "id"=>"3"}
+  [1m[36mUser Load (4.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mGossip Load (0.3ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/gossips_controller.rb:80
+No template found for GossipsController#destroy, rendering head :no_content
+Completed 204 No Content in 133ms (ActiveRecord: 4.8ms)
+
+
+Started DELETE "/gossips/15" for ::1 at 2019-10-31 16:49:09 +0100
+Processing by GossipsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"coAy3ffK6M6gcFCYFthZflaP62Ecn47xIH7I2nSVypa2SIXHvIU/2kxkw0zMvTHVNIOpVfdpV7uU8zK6TUg7EQ==", "id"=>"15"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mGossip Load (0.2ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/gossips_controller.rb:80
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/gossips_controller.rb:84
+  [1m[36mGossip Destroy (48.3ms)[0m  [1m[31mDELETE FROM "gossips" WHERE "gossips"."id" = $1[0m  [["id", 15]]
+  ↳ app/controllers/gossips_controller.rb:84
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/gossips_controller.rb:84
+Redirected to http://localhost:3000/gossips
+Completed 302 Found in 58ms (ActiveRecord: 50.9ms)
+
+
+Started GET "/gossips" for ::1 at 2019-10-31 16:49:09 +0100
+Processing by GossipsController#index as HTML
+  Rendering gossips/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mGossip Load (0.7ms)[0m  [1m[34mSELECT "gossips".* FROM "gossips"[0m
+  ↳ app/views/gossips/index.html.erb:45
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/views/gossips/index.html.erb:52
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  Rendered gossips/index.html.erb within layouts/application (23.1ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+Completed 200 OK in 135ms (Views: 129.9ms | ActiveRecord: 2.2ms)
+
+
+Started DELETE "/gossips/3" for ::1 at 2019-10-31 16:49:15 +0100
+Processing by GossipsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"qCfx9biqFMG6iD/ba2FnNVV8K3lolvEWLgJ2BVBZyhFs70bv8+XD1VacrA+xBA+eN3BpTYNgKFyaj4xlaYQ7lg==", "id"=>"3"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:5
+  [1m[36mGossip Load (0.4ms)[0m  [1m[34mSELECT  "gossips".* FROM "gossips" WHERE "gossips"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/gossips_controller.rb:80
+No template found for GossipsController#destroy, rendering head :no_content
+Completed 204 No Content in 132ms (ActiveRecord: 1.8ms)
+
+
