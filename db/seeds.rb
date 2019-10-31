@@ -26,7 +26,7 @@ t = []
 end
 #dans ma deuxième boucleje crée mes user car mes gossip en auront besoin pour être crée
 10.times do |index|
-	u << User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, description: Faker::Lorem.sentence(word_count: 10), email: Faker::Internet.email, age: rand(0..99), city: c.sample)
+	u << User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, description: Faker::Lorem.sentence(word_count: 10), email: Faker::Internet.email, age: rand(0..99), city: c.sample, password:"Anonymous")
 	puts "User : #{Faker::Name.first_name}"
 end
 20.times do |index|

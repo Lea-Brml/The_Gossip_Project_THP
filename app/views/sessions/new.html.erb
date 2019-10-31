@@ -16,10 +16,11 @@
         <br /> <br />
 
         <%= label_tag 'Mot de Passe' %><br>
-        <%= text_area_tag 'password' %>
+        <%= password_field_tag 'password' %>
         <br /> <br />
 
-        <%= submit_tag "Me connecter" %>
+        <%= submit_tag "Me connecter" %> <a style ="background-color:white; color:#62DDB9; border-color:#62DDB9;" class="btn btn-outline-light my-2 my-sm-0" href="<%=new_author_path%>">S'inscrire</a>
+
 
       <% end %>
 
