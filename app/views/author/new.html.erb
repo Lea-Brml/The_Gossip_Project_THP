@@ -10,16 +10,17 @@
     <h1 style="text-align:center; margin-top:40px; color:white; font-size:48px;"> Rejoins donc nos rangs !</h1>
 
 
-    <div class="alert alert-danger" role="alert">
-      <% if @user.errors.any? %>
+
+    <% if @user.errors.any? %>
+      <div class="alert alert-danger" role="alert">
         <p><strong>Nous n'avons pas réussi à créer votre profil pour la (ou les) raison(s) suivante(s) :</strong></p>
         <ul>
           <% @user.errors.full_messages.each do |message| %>
             <li ><%= message %></li>
           <% end %>
         </ul>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
 
 
 
@@ -38,7 +39,7 @@
           <br /> <br />
 
           <span style="color:white; font-size:24px;"><strong><%= label_tag 'Description ' %></strong></span><br>
-          <%= text_field_tag 'description', @user.description   %>
+          <%= text_field_tag 'description', @user.description  %>
           <br /> <br />
 
           <span style="color:white; font-size:24px;"><strong><%= label_tag 'Age ' %></strong></span><br>
